@@ -7,22 +7,32 @@ public class CharacterController : MonoBehaviour
 	private Rigidbody2D rigidbody2D;
 
 	public Vector2 CurrentMovement { get; private set; }
+	public bool IsNomalMove { get; set; }
 
 	// Start is called before the first frame update
 	void Start()
     {
 		this.rigidbody2D = this.gameObject.GetComponent<Rigidbody2D>();
+		this.IsNomalMove = true;
 	}
 
 	private void FixedUpdate()
 	{
-		MoveCharacter();
+		if (IsNomalMove)
+		{
+			MoveCharacter();
+		}
 	}
 
-	public void MoveCharacter()
+	private void MoveCharacter()
 	{
 		Vector2 currentMovePosition = rigidbody2D.position + this.CurrentMovement * Time.fixedDeltaTime;
 		rigidbody2D.MovePosition(currentMovePosition);
+	}
+
+	public void MoveCharacter(Vector2 newPosition)
+	{
+		rigidbody2D.MovePosition(newPosition);
 	}
 
 	public void SetMovement(Vector2 newPosition)

@@ -9,11 +9,13 @@ public class CharacterComponent : MonoBehaviour
 
 	protected CharacterController controller;
 	protected CharacterMovement movement;
+	protected Animator animator;
 
 	protected virtual void Start()
 	{
 		controller = this.gameObject.GetComponent<CharacterController>();
 		movement = this.gameObject.GetComponent<CharacterMovement>();
+		animator = this.gameObject.GetComponent<Animator>();
 	}
 
 	private void Update()

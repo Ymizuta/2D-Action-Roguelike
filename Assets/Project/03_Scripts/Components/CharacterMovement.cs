@@ -8,6 +8,8 @@ public class CharacterMovement : CharacterComponent
 
 	public float WalkSpeed { get; set; }
 
+	private readonly int movingParameter = Animator.StringToHash("Moving");
+
 	protected override void Start()
 	{
 		base.Start();
@@ -23,6 +25,7 @@ public class CharacterMovement : CharacterComponent
 	{
 		base.HandleAbility();
 		MoveCharacter();
+		UpdateAnimation();
 	}
 
 	private void MoveCharacter()
@@ -31,5 +34,17 @@ public class CharacterMovement : CharacterComponent
 		Vector2 movementnormalized = movement.normalized;
 		Vector2 movementSpeed = movementnormalized * WalkSpeed;
 		this.controller.SetMovement(movementSpeed);
+	}
+
+	private void UpdateAnimation()
+	{
+		if (Mathf.Abs(controller.CurrentMovement.x) >= 0.1f || Mathf.Abs(controller.CurrentMovement.y) >= 0.1f)
+		{
+			animator.SetBool(movingParameter, true);
+		}
+		else
+		{
+			animator.SetBool(movingParameter, false);
+		}
 	}
 }
