@@ -8,6 +8,8 @@ public class Weapon : MonoBehaviour
 	[SerializeField] private bool useMagazine = true;
 	[SerializeField] private int maxMagazineSize = 30;
 	[SerializeField] private bool autoReload = true;
+	[SerializeField] private float recoileForce = 5f;
+
 	public Character WeaponOwner { get; set; }
 	public WeaponAmmo WeaponAmmo { get; set; }
 	public int MaxMagazineSize => maxMagazineSize;
@@ -16,6 +18,7 @@ public class Weapon : MonoBehaviour
 	public bool CanShoot { get; set; }
 
 	private float nextShootTime;
+	private CharacterController controller;
 
 	private void Awake()
 	{
@@ -25,6 +28,11 @@ public class Weapon : MonoBehaviour
 	private void Update()
 	{
 		WeaponCanShoot();
+	}
+
+	public void StopWeapon()
+	{
+		controller.ApplyRecoile(Vector2.zero);
 	}
 
 	public void TriggerShoot()
@@ -59,6 +67,7 @@ public class Weapon : MonoBehaviour
 
 		Debug.Log($"Shooting Ammo : {CurrentAmmo}");
 		WeaponAmmo.ConsumeAmmo();
+		Recoile();
 		CanShoot = false;
 	}
 
@@ -80,5 +89,12 @@ public class Weapon : MonoBehaviour
 	public void SetOwner(Character owner)
 	{
 		this.WeaponOwner = owner;
+		this.controller = owner.GetComponent<CharacterController>();
+	}
+
+	private void Recoile()
+	{
+		var direction = WeaponOwner.GetComponent<CharacterFlip>().IsFaceRight ? Vector2.left : Vector2.right;
+		controller.ApplyRecoile(direction * recoileForce);
 	}
 }

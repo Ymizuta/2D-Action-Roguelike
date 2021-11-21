@@ -13,6 +13,8 @@ public class CharacterFlip : CharacterComponent
 	private FlipMode flipMode = FlipMode.MovementDirection;
 	private float threthold = 0.1f;
 
+	public bool IsFaceRight { get; private set; } = true;
+
 	protected override void HandleAbility()
 	{
 		base.HandleAbility();
@@ -45,10 +47,12 @@ public class CharacterFlip : CharacterComponent
 		if (newDirection == 1)
 		{
 			transform.localScale = new Vector3(1f, 1f, 1f);
+			IsFaceRight = true;
 		}
 		else
 		{
 			transform.localScale = new Vector3(-1f, 1f, 1f);
+			IsFaceRight = false;
 		}
 	}
 }

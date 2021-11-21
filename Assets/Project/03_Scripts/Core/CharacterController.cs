@@ -9,6 +9,8 @@ public class CharacterController : MonoBehaviour
 	public Vector2 CurrentMovement { get; private set; }
 	public bool IsNomalMove { get; set; }
 
+	private Vector2 recoileMovement;
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -22,6 +24,7 @@ public class CharacterController : MonoBehaviour
 		{
 			MoveCharacter();
 		}
+		Recoile();
 	}
 
 	private void MoveCharacter()
@@ -38,5 +41,15 @@ public class CharacterController : MonoBehaviour
 	public void SetMovement(Vector2 newPosition)
 	{
 		this.CurrentMovement = newPosition;
+	}
+
+	public void ApplyRecoile(Vector2 recoileMovement)
+	{
+		this.recoileMovement = recoileMovement;
+	}
+
+	private void Recoile()
+	{
+		rigidbody2D.AddForce(recoileMovement);
 	}
 }

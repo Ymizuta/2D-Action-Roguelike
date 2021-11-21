@@ -49,6 +49,7 @@ MonoBehaviour:
   useMagazine: 1
   maxMagazineSize: 30
   autoReload: 1
+  recoileForce: 5
 --- !u!114 &-5468823589052833529
 MonoBehaviour:
   m_ObjectHideFlags: 0
