@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8145800514432513764}
   - component: {fileID: 7436376257598517341}
   - component: {fileID: -3362912195821350226}
+  - component: {fileID: 7938906155662174844}
   m_Layer: 0
   m_Name: WeaponBar
   m_TagString: Untagged
@@ -62,6 +63,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d56451dd0b9c549ac096c48867b1d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7938906155662174844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8145800514432513765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace7ef1d44da5e345bd4274f7fa686c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reticlePrefab: {fileID: 6382181692045445589, guid: 6c18194a79926e34683a8c8316173762, type: 3}
 --- !u!1 &8145800514633994461
 GameObject:
   m_ObjectHideFlags: 0

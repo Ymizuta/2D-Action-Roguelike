@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4774034334987938244}
   - component: {fileID: -4187838565370123142}
   - component: {fileID: -6207913592953043247}
+  - component: {fileID: -6771643184222686338}
   m_Layer: 0
   m_Name: WeaponDesert
   m_TagString: Untagged
@@ -62,6 +63,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d56451dd0b9c549ac096c48867b1d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6771643184222686338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4774034334987938245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace7ef1d44da5e345bd4274f7fa686c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reticlePrefab: {fileID: 6382181692045445589, guid: 6c18194a79926e34683a8c8316173762, type: 3}
 --- !u!1 &4774034335726358525
 GameObject:
   m_ObjectHideFlags: 0
