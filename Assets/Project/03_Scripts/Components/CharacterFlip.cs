@@ -10,7 +10,7 @@ public class CharacterFlip : CharacterComponent
 		WeaponDirection,
 	}
 
-	private FlipMode flipMode = FlipMode.MovementDirection;
+	[SerializeField] private FlipMode flipMode = FlipMode.MovementDirection;
 	private float threthold = 0.1f;
 
 	public bool IsFaceRight { get; private set; } = true;
@@ -40,6 +40,8 @@ public class CharacterFlip : CharacterComponent
 
 	private void FlipToWeaponDirection()
 	{
+		if (characterWeapon.WeaponAim.CurrentAimAbsolute.x > 0f) FaceDirection(1);
+		else FaceDirection(-1);
 	}
 
 	private void FaceDirection(int newDirection)

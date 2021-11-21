@@ -11,6 +11,7 @@ public class CharacterComponent : MonoBehaviour
 	protected CharacterMovement movement;
 	protected Animator animator;
 	protected Character character;
+	protected CharacterWeapon characterWeapon;
 
 	protected virtual void Start()
 	{
@@ -18,6 +19,7 @@ public class CharacterComponent : MonoBehaviour
 		movement = this.gameObject.GetComponent<CharacterMovement>();
 		animator = this.gameObject.GetComponent<Animator>();
 		character = this.gameObject.GetComponent<Character>();
+		characterWeapon = this.gameObject.GetComponent<CharacterWeapon>();
 	}
 
 	private void Update()

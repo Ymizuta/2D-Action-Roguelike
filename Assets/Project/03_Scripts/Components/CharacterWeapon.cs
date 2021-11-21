@@ -8,6 +8,7 @@ public class CharacterWeapon : CharacterComponent
 	[SerializeField] private Weapon weaponToUse;
 
 	public Weapon CurrentWeapon { get; set; }
+	public WeaponAim WeaponAim { get; set; }
 
 	protected override void Start()
 	{
@@ -57,5 +58,6 @@ public class CharacterWeapon : CharacterComponent
 	{
 		this.CurrentWeapon = Instantiate(weapon, weaponPosition.position, weaponPosition.rotation, weaponPosition);
 		this.CurrentWeapon.SetOwner(character);
+		this.WeaponAim = CurrentWeapon.GetComponent<WeaponAim>();
 	}
 }
