@@ -10,10 +10,13 @@ public class UIManager : Singleton<UIManager>
 	[SerializeField] private TextMeshProUGUI healthNumberText = null;
 	[SerializeField] private Image shieldBar = null;
 	[SerializeField] private TextMeshProUGUI shieldNumberText = null;
+	[SerializeField] private TextMeshProUGUI ammoText = null;
 	private float currentHealth;
 	private float maxHealth;
 	private float currentShield;
 	private float maxShield;
+	private float currentAmmo;
+	private float maxAmmo;
 
 	private void Update()
 	{
@@ -26,6 +29,9 @@ public class UIManager : Singleton<UIManager>
 		healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, currentHealth / maxHealth, Time.deltaTime * 10f);
 		shieldNumberText.text = $"{currentShield} / {maxShield}";
 		shieldBar.fillAmount = Mathf.Lerp(shieldBar.fillAmount, currentShield / maxShield, Time.deltaTime * 10f);
+
+		// Weapon
+		ammoText.text = $"{currentAmmo} / {maxAmmo}";
 	}
 
 	public void UpdateHealth(float currentHealth, float maxHealth, float currentShield, float maxShield)
@@ -34,5 +40,11 @@ public class UIManager : Singleton<UIManager>
 		this.maxHealth = maxHealth;
 		this.currentShield = currentShield;
 		this.maxShield = maxShield;
+	}
+
+	public void UpdateWeapon(float currentAmmo, float maxAmmo)
+	{
+		this.currentAmmo = currentAmmo;
+		this.maxAmmo = maxAmmo;
 	}
 }

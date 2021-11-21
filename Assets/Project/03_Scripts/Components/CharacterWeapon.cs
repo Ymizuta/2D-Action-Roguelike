@@ -42,6 +42,7 @@ public class CharacterWeapon : CharacterComponent
 	private void Shoot()
 	{
 		CurrentWeapon.TriggerShoot();
+		if (character.Type == Character.CharacterType.Player) UIManager.Instance.UpdateWeapon(CurrentWeapon.CurrentAmmo, CurrentWeapon.MaxMagazineSize);
 	}
 
 	private void StopWeapon()
@@ -52,6 +53,7 @@ public class CharacterWeapon : CharacterComponent
 	private void Reload()
 	{
 		CurrentWeapon.Reload();
+		if (character.Type == Character.CharacterType.Player) UIManager.Instance.UpdateWeapon(CurrentWeapon.CurrentAmmo, CurrentWeapon.MaxMagazineSize);
 	}
 
 	private void EquipWeapon(Weapon weapon, Transform weaponPosition)
@@ -59,5 +61,7 @@ public class CharacterWeapon : CharacterComponent
 		this.CurrentWeapon = Instantiate(weapon, weaponPosition.position, weaponPosition.rotation, weaponPosition);
 		this.CurrentWeapon.SetOwner(character);
 		this.WeaponAim = CurrentWeapon.GetComponent<WeaponAim>();
+
+		if (character.Type == Character.CharacterType.Player) UIManager.Instance.UpdateWeapon(CurrentWeapon.CurrentAmmo, CurrentWeapon.MaxMagazineSize);
 	}
 }
