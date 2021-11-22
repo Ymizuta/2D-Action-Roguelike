@@ -17,8 +17,8 @@ public class CharacterComponent : MonoBehaviour
 	{
 		controller = this.gameObject.GetComponent<CharacterController>();
 		movement = this.gameObject.GetComponent<CharacterMovement>();
-		animator = this.gameObject.GetComponent<Animator>();
 		character = this.gameObject.GetComponent<Character>();
+		animator = character.Animator;
 		characterWeapon = this.gameObject.GetComponent<CharacterWeapon>();
 	}
 

@@ -11,8 +11,12 @@ public class Character : MonoBehaviour
 	}
 
 	[SerializeField] private CharacterType characterType;
+	[SerializeField] private SpriteRenderer characterSprite = null;
+	[SerializeField] private Animator animator = null;
 
 	public CharacterType Type => characterType;
+	public SpriteRenderer CharacterSprite => characterSprite;
+	public Animator Animator => animator;
 
 	// Start is called before the first frame update
 	void Start()

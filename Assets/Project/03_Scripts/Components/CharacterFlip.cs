@@ -48,12 +48,12 @@ public class CharacterFlip : CharacterComponent
 	{
 		if (newDirection == 1)
 		{
-			transform.localScale = new Vector3(1f, 1f, 1f);
+			character.CharacterSprite.transform.localScale = new Vector3(1f, 1f, 1f);
 			IsFaceRight = true;
 		}
 		else
 		{
-			transform.localScale = new Vector3(-1f, 1f, 1f);
+			character.CharacterSprite.transform.localScale = new Vector3(-1f, 1f, 1f);
 			IsFaceRight = false;
 		}
 	}

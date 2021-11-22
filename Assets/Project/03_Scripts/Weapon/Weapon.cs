@@ -28,6 +28,7 @@ public class Weapon : MonoBehaviour
 	private void Update()
 	{
 		WeaponCanShoot();
+		RotateWeapon();
 	}
 
 	public void StopWeapon()
@@ -96,5 +97,17 @@ public class Weapon : MonoBehaviour
 	{
 		var direction = WeaponOwner.GetComponent<CharacterFlip>().IsFaceRight ? Vector2.left : Vector2.right;
 		controller.ApplyRecoile(direction * recoileForce);
+	}
+
+	private void RotateWeapon()
+	{
+		if (WeaponOwner.gameObject.GetComponent<CharacterFlip>().IsFaceRight)
+		{
+			transform.localScale = Vector3.one;
+		}
+		else
+		{
+			transform.localScale = new Vector3(-1f, 1f, 1f);
+		}
 	}
 }
