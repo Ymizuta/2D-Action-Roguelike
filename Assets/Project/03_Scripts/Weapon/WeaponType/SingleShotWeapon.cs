@@ -5,8 +5,10 @@ using UnityEngine;
 public class SingleShotWeapon : Weapon
 {
 	[SerializeField] private Vector3 projectileSpawnPosition;
+	[SerializeField] private Vector3 projectileSpread;
 
 	private Vector3 ProjectileSpawnPosition;
+	private Vector3 randomProjectileSpread;
 	private ObjectPooler pooler;
 
 	private void Start()
@@ -31,10 +33,16 @@ public class SingleShotWeapon : Weapon
 		projectile.gameObject.SetActive(true);
 		projectile.Initialize();
 
+		// spread
+		randomProjectileSpread.z = Random.Range(-projectileSpread.z, projectileSpread.z);
+		Quaternion spread = Quaternion.Euler(randomProjectileSpread);
+
+		// Set direction and rotation
 		bool isRight = WeaponOwner.GetComponent<CharacterFlip>().IsFaceRight;
-		Vector2 newDirection = isRight ? transform.right : -transform.right;
+		Vector2 newDirection = isRight ?  spread * transform.right: spread * -transform.right;
 		projectile.SetDirection(newDirection, transform.rotation, isRight);
 
+		// disable shot until next shot time
 		CanShoot = false;
 	}
 

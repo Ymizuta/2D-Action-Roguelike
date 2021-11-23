@@ -53,6 +53,7 @@ MonoBehaviour:
   autoReload: 1
   recoileForce: 5
   projectileSpawnPosition: {x: 0.8, y: 0.06, z: 0}
+  projectileSpread: {x: 0, y: 0, z: 15}
 --- !u!114 &-3362912195821350226
 MonoBehaviour:
   m_ObjectHideFlags: 0
