@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119a8c7f94784284bb7294c23e0cc81d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBtwShoot: 0.5
+  timeBtwShoot: 0.1
   useMagazine: 1
   maxMagazineSize: 30
   autoReload: 1
