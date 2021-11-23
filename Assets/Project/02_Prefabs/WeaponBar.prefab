@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8145800514432513764}
-  - component: {fileID: 7436376257598517341}
+  - component: {fileID: 5487569279375274614}
   - component: {fileID: -3362912195821350226}
   - component: {fileID: 7938906155662174844}
+  - component: {fileID: 1301639901424617347}
   m_Layer: 0
   m_Name: WeaponBar
   m_TagString: Untagged
@@ -34,7 +35,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7436376257598517341
+--- !u!114 &5487569279375274614
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,7 +44,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8145800514432513765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4143fb2c8103ddf44b9dfaa902b00508, type: 3}
+  m_Script: {fileID: 11500000, guid: 119a8c7f94784284bb7294c23e0cc81d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timeBtwShoot: 0.5
@@ -51,6 +52,7 @@ MonoBehaviour:
   maxMagazineSize: 30
   autoReload: 1
   recoileForce: 5
+  projectileSpawnPosition: {x: 0.8, y: 0.06, z: 0}
 --- !u!114 &-3362912195821350226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,6 +78,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reticlePrefab: {fileID: 6382181692045445589, guid: 6c18194a79926e34683a8c8316173762, type: 3}
+--- !u!114 &1301639901424617347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8145800514432513765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c87e7d90c5d6a48aeb83d3d6b08894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefab: {fileID: 3519433614640612784, guid: ce45c379500e137428d18e9b0e4774db, type: 3}
+  poolSize: 10
+  canExpand: 1
 --- !u!1 &8145800514633994461
 GameObject:
   m_ObjectHideFlags: 0

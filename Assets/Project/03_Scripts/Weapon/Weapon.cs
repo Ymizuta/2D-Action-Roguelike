@@ -59,17 +59,15 @@ public class Weapon : MonoBehaviour
 		}
 	}
 
-	private void RequestShoot()
+	protected virtual void RequestShoot()
 	{
 		if (!CanShoot)
 		{
 			return;
 		}
 
-		Debug.Log($"Shooting Ammo : {CurrentAmmo}");
 		WeaponAmmo.ConsumeAmmo();
 		Recoile();
-		CanShoot = false;
 	}
 
 	private void WeaponCanShoot()

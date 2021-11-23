@@ -539,7 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponHolderPosition: {fileID: 625343122}
-  weaponToUse: {fileID: 7436376257598517341, guid: 6a5d821a8e3a14c4491aa28c4a2c69db, type: 3}
+  weaponToUse: {fileID: 5487569279375274614, guid: 6a5d821a8e3a14c4491aa28c4a2c69db, type: 3}
 --- !u!1 &363027765
 GameObject:
   m_ObjectHideFlags: 0
