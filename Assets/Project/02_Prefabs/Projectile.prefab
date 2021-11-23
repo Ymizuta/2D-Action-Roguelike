@@ -159,3 +159,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 2
+  objectMask:
+    serializedVersion: 2
+    m_Bits: 64

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ReturnToPool : MonoBehaviour
 {
 	[SerializeField] private float lifeTime = 2f;
+	[SerializeField] private LayerMask objectMask;
 	private Coroutine coroutine;
 
 	public void Return()
@@ -28,5 +29,18 @@ public class ReturnToPool : MonoBehaviour
 	{
 		yield return new WaitForSeconds(lifeTime);
 		Return();
+	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (CheckLayer(collision.gameObject.layer, objectMask))
+		{
+			Return();
+		}
+	}
+
+	private bool CheckLayer(int layer, LayerMask objectMask)
+	{
+		return ((1 << layer) & objectMask) != 0;
 	}
 }
