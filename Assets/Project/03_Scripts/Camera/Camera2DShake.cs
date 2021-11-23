@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
 
 public class Camera2DShake : MonoBehaviour
 {
+	[SerializeField] private CharacterWeapon characterWeapon;
 	[SerializeField] private float shakeVibrato = 10f;
 	[SerializeField] private float shakeRandomeness = 0.1f;
 	[SerializeField] private float shakeTime = 0.01f;
 
-	private void Update()
+	private void Awake()
 	{
-		if (Input.GetKeyDown(KeyCode.G))
-		{
-			Shake();
-		}
+		// shoot event
+		characterWeapon.OnShootAsObservable.Subscribe(_ => Shake()).AddTo(this);
 	}
 
 	public void Shake()

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
 
 public class CharacterWeapon : CharacterComponent
 {
@@ -9,6 +11,11 @@ public class CharacterWeapon : CharacterComponent
 
 	public Weapon CurrentWeapon { get; set; }
 	public WeaponAim WeaponAim { get; set; }
+
+	// event
+	private Subject<Unit> onShootSubject = new Subject<Unit>();
+
+	public IObservable<Unit> OnShootAsObservable => onShootSubject;
 
 	protected override void Start()
 	{
@@ -42,7 +49,11 @@ public class CharacterWeapon : CharacterComponent
 	private void Shoot()
 	{
 		CurrentWeapon.TriggerShoot();
-		if (character.Type == Character.CharacterType.Player) UIManager.Instance.UpdateWeapon(CurrentWeapon.CurrentAmmo, CurrentWeapon.MaxMagazineSize);
+		if (character.Type == Character.CharacterType.Player)
+		{
+			UIManager.Instance.UpdateWeapon(CurrentWeapon.CurrentAmmo, CurrentWeapon.MaxMagazineSize);
+			onShootSubject.OnNext(default);
+		}
 	}
 
 	private void StopWeapon()
