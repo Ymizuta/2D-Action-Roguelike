@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -3362912195821350226}
   - component: {fileID: 7938906155662174844}
   - component: {fileID: 1301639901424617347}
+  - component: {fileID: 8574101143315916708}
   m_Layer: 0
   m_Name: WeaponBar
   m_TagString: Untagged
@@ -96,6 +97,25 @@ MonoBehaviour:
   objectPrefab: {fileID: 3519433614640612784, guid: ce45c379500e137428d18e9b0e4774db, type: 3}
   poolSize: 10
   canExpand: 1
+--- !u!95 &8574101143315916708
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8145800514432513765}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 77fc738c8af09d3458974e0e9b1d22c7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8145800514633994461
 GameObject:
   m_ObjectHideFlags: 0

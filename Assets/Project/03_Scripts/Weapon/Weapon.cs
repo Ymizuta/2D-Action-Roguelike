@@ -20,12 +20,16 @@ public class Weapon : MonoBehaviour
 	public int CurrentAmmo { get; set; }
 	public bool CanShoot { get; set; }
 
+	private readonly int weaponUseParameter = Animator.StringToHash("WeaponUse");
+
 	private float nextShootTime;
 	private CharacterController controller;
+	private Animator animator;
 
 	private void Awake()
 	{
 		WeaponAmmo = this.gameObject.GetComponent<WeaponAmmo>();
+		animator = this.gameObject.GetComponent<Animator>();
 	}
 
 	private void Update()
@@ -68,7 +72,7 @@ public class Weapon : MonoBehaviour
 		{
 			return;
 		}
-
+		animator.SetTrigger(weaponUseParameter);
 		WeaponAmmo.ConsumeAmmo();
 		mazzleEffect.Play();
 		Recoile();
