@@ -10,6 +10,9 @@ public class Weapon : MonoBehaviour
 	[SerializeField] private bool autoReload = true;
 	[SerializeField] private float recoileForce = 5f;
 
+	[Header("Effect")]
+	[SerializeField] private ParticleSystem mazzleEffect = null;
+
 	public Character WeaponOwner { get; set; }
 	public WeaponAmmo WeaponAmmo { get; set; }
 	public int MaxMagazineSize => maxMagazineSize;
@@ -67,6 +70,7 @@ public class Weapon : MonoBehaviour
 		}
 
 		WeaponAmmo.ConsumeAmmo();
+		mazzleEffect.Play();
 		Recoile();
 	}
 

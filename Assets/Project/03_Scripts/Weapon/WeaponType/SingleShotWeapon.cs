@@ -32,6 +32,7 @@ public class SingleShotWeapon : Weapon
 		projectile.transform.position = spawnPosition;
 		projectile.gameObject.SetActive(true);
 		projectile.Initialize();
+		projectile.ReuseInit();
 		projectile.GetComponent<SpriteRenderer>().flipX = false;
 
 		// spread
