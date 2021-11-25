@@ -34,10 +34,14 @@ public class UIManager : Singleton<UIManager>
 		ammoText.text = $"{currentAmmo} / {maxAmmo}";
 	}
 
-	public void UpdateHealth(float currentHealth, float maxHealth, float currentShield, float maxShield)
+	public void UpdateHealth(float currentHealth, float maxHealth)
 	{
 		this.currentHealth = currentHealth;
 		this.maxHealth = maxHealth;
+	}
+
+	public void UpdateShield(float currentShield, float maxShield)
+	{
 		this.currentShield = currentShield;
 		this.maxShield = maxShield;
 	}

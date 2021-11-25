@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
 
 public class Health : MonoBehaviour
 {
@@ -18,39 +19,53 @@ public class Health : MonoBehaviour
 	private BoxCollider2D collider;
 	private SpriteRenderer renderer;
 
-	public float CurrentHealth { get; set; }
-	public float CurrentShield { get; set; }
+	public ReactiveProperty<float> CurrentHealth { get; set; } = new ReactiveProperty<float>();
+	public ReactiveProperty<float> CurrentShield { get; set; } = new ReactiveProperty<float>();
 
-	private void Awake()
+	public void Initalize(bool isPlayer = false)
 	{
-		this.CurrentHealth = initHealth;
-		this.CurrentShield = initShield;
+		this.CurrentHealth.Value = initHealth;
+		this.CurrentShield.Value = initShield;
 		this.character = this.gameObject.GetComponent<Character>();
 		this.controller = this.gameObject.GetComponent<CharacterController>();
 		this.collider = this.gameObject.GetComponent<BoxCollider2D>();
-		this.renderer = this.gameObject.GetComponent<SpriteRenderer>();
-		UIManager.Instance.UpdateHealth(this.CurrentHealth, this.maxHealth, this.CurrentShield, this.maxShield);
+		// todo ’¼‚µ‚½‚¢
+		this.renderer = isPlayer ? character.CharacterSprite : this.gameObject.GetComponent<SpriteRenderer>();
+
+		if (isPlayer)
+		{
+			this.CurrentHealth
+				.Subscribe(health =>
+				{
+					if (health < 0) health = 0;
+					UIManager.Instance.UpdateHealth(health, this.maxHealth);
+				}).AddTo(this);
+			this.CurrentShield
+				.Subscribe(shield =>
+				{
+					if (shield < 0) shield = 0;
+					UIManager.Instance.UpdateShield(this.CurrentShield.Value, this.maxShield);
+				}).AddTo(this);
+		}
 	}
 
 	public void TakeDamage(int damage)
 	{
-		if (CurrentHealth <= 0 )
+		if (CurrentHealth.Value <= 0 )
 		{
 			return;
 		}
 
-		if (0 < CurrentShield)
+		if (0 < CurrentShield.Value)
 		{
-			CurrentShield -= damage;
-			if (CurrentShield < 0) CurrentShield = 0;
-			UIManager.Instance.UpdateHealth(this.CurrentHealth, this.maxHealth, this.CurrentShield, this.maxShield);
+			CurrentShield.Value -= damage;
+			if (CurrentShield.Value < 0) CurrentShield.Value = 0;
 			return;
 		}
 
-		this.CurrentHealth -= damage;
-		if (this.CurrentHealth < 0) this.CurrentHealth = 0;
-		UIManager.Instance.UpdateHealth(this.CurrentHealth, this.maxHealth, this.CurrentShield, this.maxShield);
-		if (CurrentHealth <= 0)
+		this.CurrentHealth.Value -= damage;
+		if (this.CurrentHealth.Value < 0) this.CurrentHealth.Value = 0;
+		if (CurrentHealth.Value <= 0)
 		{
 			Die();
 		}
@@ -58,25 +73,20 @@ public class Health : MonoBehaviour
 
 	private void Die()
 	{
-		this.character.enabled = false;
-		this.controller.enabled = false;
 		this.collider.enabled = false;
 		this.renderer.enabled = false;
 	}
 
 	public void Revive()
 	{
-		this.character.enabled = true;
-		this.controller.enabled = true;
 		this.collider.enabled = true;
 		this.renderer.enabled = true;
 		if (destroyObject)
 		{
 			this.gameObject.SetActive(true);
 		}
-		this.CurrentHealth = initHealth;
-		this.CurrentShield = initShield;
-		UIManager.Instance.UpdateHealth(this.CurrentHealth, this.maxHealth, this.CurrentShield, this.maxShield);
+		this.CurrentHealth.Value = initHealth;
+		this.CurrentShield.Value = initShield;
 	}
 
 	private void DestroyObject()

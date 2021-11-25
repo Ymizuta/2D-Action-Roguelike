@@ -18,15 +18,9 @@ public class Character : MonoBehaviour
 	public SpriteRenderer CharacterSprite => characterSprite;
 	public Animator Animator => animator;
 
-	// Start is called before the first frame update
-	void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private void Awake()
+	{
+		this.gameObject.GetComponent<Health>().Initalize(isPlayer: true);
+		this.gameObject.GetComponent<CharacterController>().Initialize();
+	}
 }

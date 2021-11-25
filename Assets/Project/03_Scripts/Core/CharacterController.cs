@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
+using UniRx.Triggers;
 
 public class CharacterController : MonoBehaviour
 {
@@ -11,20 +13,22 @@ public class CharacterController : MonoBehaviour
 
 	private Vector2 recoileMovement;
 
-	// Start is called before the first frame update
-	void Start()
-    {
+	public void Initialize()
+	{
 		this.rigidbody2D = this.gameObject.GetComponent<Rigidbody2D>();
 		this.IsNomalMove = true;
-	}
 
-	private void FixedUpdate()
-	{
-		if (IsNomalMove)
-		{
-			MoveCharacter();
-		}
-		Recoile();
+		Health health = this.gameObject.GetComponent<Health>();
+		this.gameObject.FixedUpdateAsObservable()
+			.Where(_ => health.CurrentHealth.Value > 0)
+			.Subscribe(_ =>
+			{
+				if (IsNomalMove)
+				{
+					MoveCharacter();
+				}
+				Recoile();
+			}).AddTo(this);
 	}
 
 	private void MoveCharacter()
