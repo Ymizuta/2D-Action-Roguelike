@@ -18,6 +18,7 @@ public class Health : MonoBehaviour
 	private CharacterController controller;
 	private BoxCollider2D collider;
 	private SpriteRenderer renderer;
+	private bool isPlayer;
 
 	public ReactiveProperty<float> CurrentHealth { get; set; } = new ReactiveProperty<float>();
 	public ReactiveProperty<float> CurrentShield { get; set; } = new ReactiveProperty<float>();
@@ -31,6 +32,7 @@ public class Health : MonoBehaviour
 		this.collider = this.gameObject.GetComponent<BoxCollider2D>();
 		// todo ’¼‚µ‚½‚¢
 		this.renderer = isPlayer ? character.CharacterSprite : this.gameObject.GetComponent<SpriteRenderer>();
+		this.isPlayer = isPlayer;
 
 		if (isPlayer)
 		{
@@ -73,14 +75,22 @@ public class Health : MonoBehaviour
 
 	private void Die()
 	{
-		this.collider.enabled = false;
-		this.renderer.enabled = false;
+		// todo ’¼‚·
+		if (isPlayer)
+		{
+			this.collider.enabled = false;
+			this.renderer.enabled = false;
+		}
 	}
 
 	public void Revive()
 	{
-		this.collider.enabled = true;
-		this.renderer.enabled = true;
+		// todo ’¼‚·
+		if (isPlayer)
+		{
+			this.collider.enabled = true;
+			this.renderer.enabled = true;
+		}
 		if (destroyObject)
 		{
 			this.gameObject.SetActive(true);

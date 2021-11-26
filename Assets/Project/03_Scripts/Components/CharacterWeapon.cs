@@ -9,6 +9,8 @@ public class CharacterWeapon : CharacterComponent
 	[SerializeField] private Transform weaponHolderPosition;
 	[SerializeField] private Weapon weaponToUse;
 
+	private Health health;
+
 	public Weapon CurrentWeapon { get; set; }
 	public WeaponAim WeaponAim { get; set; }
 
@@ -20,6 +22,7 @@ public class CharacterWeapon : CharacterComponent
 	protected override void Start()
 	{
 		base.Start();
+		this.health = this.gameObject.GetComponent<Health>();
 		EquipWeapon(weaponToUse, weaponHolderPosition);
 	}
 
@@ -27,7 +30,7 @@ public class CharacterWeapon : CharacterComponent
 	{
 		if (Input.GetMouseButton(0))
 		{
-			Shoot();
+			if(health.CurrentHealth.Value > 0)Shoot();
 		}
 
 		if (Input.GetMouseButtonUp(0))
@@ -37,7 +40,7 @@ public class CharacterWeapon : CharacterComponent
 
 		if (Input.GetKeyDown(KeyCode.R))
 		{
-			Reload();
+			if (health.CurrentHealth.Value > 0) Reload();
 		}
 	}
 
