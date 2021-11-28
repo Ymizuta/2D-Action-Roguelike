@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rewards:
-  - {fileID: 7062009195671553015, guid: a4a41ee058965a54688faeefc68861f3, type: 3}
+  - {fileID: 884023757937417943, guid: 7d0958fb80e826a469b6882d880366d5, type: 3}
   - {fileID: 728524399222227986, guid: f6159af1c9b58974397a1f20cf8a58d8, type: 3}
   xRandomPosition: 2
   yRandomPosition: 2
