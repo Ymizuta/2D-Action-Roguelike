@@ -104,6 +104,11 @@ public class Health : MonoBehaviour
 		this.CurrentHealth.Value = Mathf.Min(CurrentHealth.Value + amount, maxHealth);
 	}
 
+	public void GainShield(int amount)
+	{
+		this.CurrentShield.Value = Mathf.Min(CurrentShield.Value + amount, maxShield);
+	}
+
 	private void DestroyObject()
 	{
 		if (destroyObject)
