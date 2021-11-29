@@ -16,11 +16,15 @@ public class ComponentBase : MonoBehaviour
 	private SpriteRenderer spriteRenderer;
 	private Collider2D collider2D;
 
+	// todo サブクラスに分けた方がよいやろ
+	private JarReward jarReward;
+
     void Start()
     {
 		health = this.gameObject.GetComponent<Health>();
 		spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
 		collider2D = this.gameObject.GetComponent<Collider2D>();
+		jarReward = this.gameObject.GetComponent<JarReward>();
 		if (health)
 		{
 			health.Initalize();
@@ -48,12 +52,15 @@ public class ComponentBase : MonoBehaviour
 		{
 			if (destroySprite == null)
 			{
+				// box
 				Destroy(this.gameObject);
 			}else
 			{
+				// jar
 				this.spriteRenderer.sprite = destroySprite;
 				collider2D.enabled = false;
+				if (jarReward != null) jarReward.GiveReward();
 			}
-		}
+		}		
 	}
 }

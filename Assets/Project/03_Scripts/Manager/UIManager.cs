@@ -6,17 +6,28 @@ using TMPro;
 
 public class UIManager : Singleton<UIManager>
 {
+	[Header("Health")]
 	[SerializeField] private Image healthBar = null;
 	[SerializeField] private TextMeshProUGUI healthNumberText = null;
+
+	[Header("Shield")]
 	[SerializeField] private Image shieldBar = null;
 	[SerializeField] private TextMeshProUGUI shieldNumberText = null;
+
+	[Header("Weapon")]
 	[SerializeField] private TextMeshProUGUI ammoText = null;
+
+	[Header("Coin")]
+	[SerializeField] private TextMeshProUGUI coinText = null;
+
 	private float currentHealth;
 	private float maxHealth;
 	private float currentShield;
 	private float maxShield;
 	private float currentAmmo;
 	private float maxAmmo;
+
+
 
 	private void Update()
 	{
@@ -50,5 +61,10 @@ public class UIManager : Singleton<UIManager>
 	{
 		this.currentAmmo = currentAmmo;
 		this.maxAmmo = maxAmmo;
+	}
+
+	public void UpdateCoin(int coin)
+	{
+		this.coinText.text = coin.ToString();
 	}
 }
