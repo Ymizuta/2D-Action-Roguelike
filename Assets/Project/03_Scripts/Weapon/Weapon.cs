@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
+using UniRx.Triggers;
 
 public class Weapon : MonoBehaviour
 {
@@ -26,16 +28,30 @@ public class Weapon : MonoBehaviour
 	private CharacterController controller;
 	private Animator animator;
 
-	private void Awake()
+	public void Initialize(Character character)
 	{
+		SetOwner(character);
 		WeaponAmmo = this.gameObject.GetComponent<WeaponAmmo>();
+		WeaponAmmo.Initialize();
+		GetComponent<WeaponAim>().Initialize();
 		animator = this.gameObject.GetComponent<Animator>();
+
+		this.gameObject.UpdateAsObservable()
+			.Subscribe(_ => 
+			{
+				WeaponCanShoot();
+				RotateWeapon();
+			}).AddTo(this);
 	}
 
-	private void Update()
+	public void Equiped()
 	{
-		WeaponCanShoot();
-		RotateWeapon();
+		this.gameObject.SetActive(true);
+	}
+
+	public void Returned()
+	{
+		this.gameObject.SetActive(false);
 	}
 
 	public void StopWeapon()

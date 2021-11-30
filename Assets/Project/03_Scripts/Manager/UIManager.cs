@@ -16,6 +16,7 @@ public class UIManager : Singleton<UIManager>
 
 	[Header("Weapon")]
 	[SerializeField] private TextMeshProUGUI ammoText = null;
+	[SerializeField] private Image weaponImg = null;
 
 	[Header("Coin")]
 	[SerializeField] private TextMeshProUGUI coinText = null;
@@ -66,5 +67,11 @@ public class UIManager : Singleton<UIManager>
 	public void UpdateCoin(int coin)
 	{
 		this.coinText.text = coin.ToString();
+	}
+
+	public void UpdateWeaponImage(Sprite sprite)
+	{
+		weaponImg.sprite = sprite;
+		weaponImg.SetNativeSize();
 	}
 }

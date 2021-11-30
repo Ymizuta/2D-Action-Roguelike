@@ -22,18 +22,15 @@ public class CharacterWeapon : CharacterComponent
 
 	public void GetNewWeapon(Weapon weapon)
 	{
-		// get weapon
-		ownedWeapons.Add(weapon);
+		CreateWeapon(weapon, weaponHolderPosition);
 	}
 
 	protected override void Start()
 	{
 		base.Start();
 		this.health = this.gameObject.GetComponent<Health>();
-		EquipWeapon(weaponToUse, weaponHolderPosition);
-
-		// get weapon
-		this.ownedWeapons.Add(weaponToUse);
+		CreateWeapon(weaponToUse, weaponHolderPosition);
+		EquipWeapon(0);
 	}
 
 	protected override void HandleInput()
@@ -56,11 +53,11 @@ public class CharacterWeapon : CharacterComponent
 		// Equip weapon
 		if (Input.GetKeyDown(KeyCode.Alpha1) && ownedWeapons.Count > 1)
 		{
-			EquipWeapon(ownedWeapons[0], weaponHolderPosition);
+			EquipWeapon(0);
 		}
 		if (Input.GetKeyDown(KeyCode.Alpha2) && ownedWeapons.Count > 1)
 		{
-			EquipWeapon(ownedWeapons[1], weaponHolderPosition);
+			EquipWeapon(1);
 		}
 	}
 
@@ -90,19 +87,35 @@ public class CharacterWeapon : CharacterComponent
 		if (character.Type == Character.CharacterType.Player) UIManager.Instance.UpdateWeapon(CurrentWeapon.CurrentAmmo, CurrentWeapon.MaxMagazineSize);
 	}
 
-	private void EquipWeapon(Weapon weapon, Transform weaponPosition)
+	private void CreateWeapon(Weapon weapon, Transform weaponPosition)
+	{
+		var newWeapon = Instantiate(weapon, weaponPosition.position, weaponPosition.rotation, weaponPosition);
+		newWeapon.Initialize(character);
+		newWeapon.Returned();
+		this.ownedWeapons.Add(newWeapon);
+	}
+
+	private void EquipWeapon(int idx)
 	{
 		if (CurrentWeapon != null)
 		{
-			WeaponAim.DestroyReticle();
-			Destroy(GameObject.Find("Pool"));
-			Destroy(CurrentWeapon.gameObject);
+			// hide weapon & reticle
+			CurrentWeapon.Returned();
+			WeaponAim.HideReticle();
+			//Destroy(GameObject.Find("Pool"));
 		}
 
-		this.CurrentWeapon = Instantiate(weapon, weaponPosition.position, weaponPosition.rotation, weaponPosition);
-		this.CurrentWeapon.SetOwner(character);
+		// change weapon
+		this.CurrentWeapon = ownedWeapons[idx];
+		this.CurrentWeapon.Equiped();
+		// change reticle
 		this.WeaponAim = CurrentWeapon.GetComponent<WeaponAim>();
+		this.WeaponAim.ShowReticle();
 
-		if (character.Type == Character.CharacterType.Player) UIManager.Instance.UpdateWeapon(CurrentWeapon.CurrentAmmo, CurrentWeapon.MaxMagazineSize);
+		if (character.Type == Character.CharacterType.Player)
+		{
+			UIManager.Instance.UpdateWeapon(CurrentWeapon.CurrentAmmo, CurrentWeapon.MaxMagazineSize);
+			UIManager.Instance.UpdateWeaponImage(this.CurrentWeapon.GetComponentInChildren<SpriteRenderer>().sprite);
+		}
 	}
 }

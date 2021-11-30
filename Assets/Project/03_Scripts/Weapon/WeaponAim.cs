@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
+using UniRx.Triggers;
 
 public class WeaponAim : MonoBehaviour
 {
@@ -17,25 +19,30 @@ public class WeaponAim : MonoBehaviour
 	public float CurrentAimAngle { get; set; }
 	public Vector3 CurrentAimAbsolute { get; private set; }
 
-	private void Start()
+	public void Initialize()
 	{
 		Cursor.visible = false;
-
 		this.reticle = Instantiate(reticlePrefab);
 		this.initRotation = transform.rotation;
 		this.characterFlip = this.gameObject.GetComponent<Weapon>().WeaponOwner.GetComponent<CharacterFlip>();
+
+		this.UpdateAsObservable()
+			.Subscribe(_ => 
+			{
+				GetMousePosition();
+				MoveReticle();
+				RotateWeapon();
+			}).AddTo(this);
 	}
 
-	private void Update()
+	public void ShowReticle()
 	{
-		GetMousePosition();
-		MoveReticle();
-		RotateWeapon();
+		reticle.gameObject.SetActive(true);
 	}
 
-	public void DestroyReticle()
+	public void HideReticle()
 	{
-		Destroy(reticle);
+		reticle.gameObject.SetActive(false);
 	}
 
 	private void GetMousePosition()

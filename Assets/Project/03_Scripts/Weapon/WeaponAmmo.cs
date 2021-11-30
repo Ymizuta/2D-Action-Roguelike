@@ -6,7 +6,7 @@ public class WeaponAmmo : MonoBehaviour
 {
 	private Weapon weapon;
 
-	private void Awake()
+	public void Initialize()
 	{
 		this.weapon = this.gameObject.GetComponent<Weapon>();
 		RefillAmmo();
