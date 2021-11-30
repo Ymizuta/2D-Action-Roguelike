@@ -33,6 +33,11 @@ public class WeaponAim : MonoBehaviour
 		RotateWeapon();
 	}
 
+	public void DestroyReticle()
+	{
+		Destroy(reticle);
+	}
+
 	private void GetMousePosition()
 	{
 		var mousePos = Input.mousePosition;

@@ -9,6 +9,7 @@ public class CharacterWeapon : CharacterComponent
 	[SerializeField] private Transform weaponHolderPosition;
 	[SerializeField] private Weapon weaponToUse;
 
+	private List<Weapon> ownedWeapons = new List<Weapon>();
 	private Health health;
 
 	public Weapon CurrentWeapon { get; set; }
@@ -19,11 +20,20 @@ public class CharacterWeapon : CharacterComponent
 
 	public IObservable<Unit> OnShootAsObservable => onShootSubject;
 
+	public void GetNewWeapon(Weapon weapon)
+	{
+		// get weapon
+		ownedWeapons.Add(weapon);
+	}
+
 	protected override void Start()
 	{
 		base.Start();
 		this.health = this.gameObject.GetComponent<Health>();
 		EquipWeapon(weaponToUse, weaponHolderPosition);
+
+		// get weapon
+		this.ownedWeapons.Add(weaponToUse);
 	}
 
 	protected override void HandleInput()
@@ -41,6 +51,16 @@ public class CharacterWeapon : CharacterComponent
 		if (Input.GetKeyDown(KeyCode.R))
 		{
 			if (health.CurrentHealth.Value > 0) Reload();
+		}
+
+		// Equip weapon
+		if (Input.GetKeyDown(KeyCode.Alpha1) && ownedWeapons.Count > 1)
+		{
+			EquipWeapon(ownedWeapons[0], weaponHolderPosition);
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha2) && ownedWeapons.Count > 1)
+		{
+			EquipWeapon(ownedWeapons[1], weaponHolderPosition);
 		}
 	}
 
@@ -72,6 +92,13 @@ public class CharacterWeapon : CharacterComponent
 
 	private void EquipWeapon(Weapon weapon, Transform weaponPosition)
 	{
+		if (CurrentWeapon != null)
+		{
+			WeaponAim.DestroyReticle();
+			Destroy(GameObject.Find("Pool"));
+			Destroy(CurrentWeapon.gameObject);
+		}
+
 		this.CurrentWeapon = Instantiate(weapon, weaponPosition.position, weaponPosition.rotation, weaponPosition);
 		this.CurrentWeapon.SetOwner(character);
 		this.WeaponAim = CurrentWeapon.GetComponent<WeaponAim>();
