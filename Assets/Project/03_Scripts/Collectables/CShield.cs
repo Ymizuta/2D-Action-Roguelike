@@ -24,4 +24,10 @@ public class CShield : Collectables
 			character.GetComponent<Health>().GainShield(shieldToAdd);
 		}
 	}
+
+	public void AddShield(Character character)
+	{
+		this.character = character;
+		AddShield();
+	}
 }

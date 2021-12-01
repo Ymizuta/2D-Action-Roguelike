@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c87e7d90c5d6a48aeb83d3d6b08894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectPrefab: {fileID: 3519433614640612784, guid: b5267da91ae9e6f419a00b97772b4563, type: 3}
+  objectPrefab: {fileID: 3519433614640612784, guid: 686a252359188614ab3b8b38245cdf3f, type: 3}
   poolSize: 10
   canExpand: 1
 --- !u!95 &8574101143315916708
@@ -185,7 +185,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1912412317
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 6407226241554960098, guid: 53b59ee1a5003e74a8873e3f4e5b8567, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

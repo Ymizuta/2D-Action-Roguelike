@@ -59,6 +59,10 @@ public class CharacterWeapon : CharacterComponent
 		{
 			EquipWeapon(1);
 		}
+		if (Input.GetKeyDown(KeyCode.Alpha3) && ownedWeapons.Count > 1)
+		{
+			EquipWeapon(2);
+		}
 	}
 
 	protected override void HandleAbility()

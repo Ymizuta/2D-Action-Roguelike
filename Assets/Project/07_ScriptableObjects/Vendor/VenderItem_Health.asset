@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 755a9b8edec335f4fba586bb510f08e8, type: 3}
-  m_Name: Item_Weapon
+  m_Script: {fileID: 11500000, guid: e3153275617167b489b7d053f1d41f3f, type: 3}
+  m_Name: VenderItem_Health
   m_EditorClassIdentifier: 
-  equipedWeapon: {fileID: 5487569279375274614, guid: b0380601a60fd9342b58b2999d7c9915, type: 3}
-  weaponSprite: {fileID: 6407226241554960098, guid: 53b59ee1a5003e74a8873e3f4e5b8567, type: 3}
+  itemCollectable: {fileID: 6316428914930892237, guid: 7d0958fb80e826a469b6882d880366d5, type: 3}
+  cost: 25

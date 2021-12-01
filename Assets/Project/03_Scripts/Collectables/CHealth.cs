@@ -24,4 +24,10 @@ public class CHealth : Collectables
 			character.gameObject.GetComponent<Health>().GainHealth(healtToAdd);
 		}
 	}
+
+	public void AddHealth(Character character)
+	{
+		this.character = character;
+		AddHealth();
+	}
 }
