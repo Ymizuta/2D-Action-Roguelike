@@ -14,7 +14,7 @@ TagManager:
   - UI
   - MAP
   - LevelComponent
-  - 
+  - Player
   - 
   - 
   - 
@@ -56,6 +56,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 149595703
+    locked: 0
+  - name: Enemy
+    uniqueID: 2534243069
     locked: 0
   - name: Projectile
     uniqueID: 2398316583

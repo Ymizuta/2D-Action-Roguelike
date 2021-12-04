@@ -39,7 +39,10 @@ public class CharacterComponent : MonoBehaviour
 
 	protected virtual void InternalInput()
 	{
-		this.horizontalInput = Input.GetAxisRaw("Horizontal");
-		this.verticalInput = Input.GetAxisRaw("Vertical");
+		if (character.Type == Character.CharacterType.Player)
+		{
+			this.horizontalInput = Input.GetAxisRaw("Horizontal");
+			this.verticalInput = Input.GetAxisRaw("Vertical");
+		}
 	}
 }

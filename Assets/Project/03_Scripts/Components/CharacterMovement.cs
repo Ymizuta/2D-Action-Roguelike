@@ -47,4 +47,14 @@ public class CharacterMovement : CharacterComponent
 			animator.SetBool(movingParameter, false);
 		}
 	}
+
+	public void SetHorizontal(float value)
+	{
+		this.horizontalInput = value;
+	}
+
+	public void SetVertical(float value)
+	{
+		this.verticalInput = value;
+	}
 }
