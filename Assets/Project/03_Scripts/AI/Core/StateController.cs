@@ -12,9 +12,12 @@ public class StateController : MonoBehaviour
 
 	public CharacterMovement CharacterMovement { get; set; }
 
+	public Path Path { get; set; }
+
 	private void Awake()
 	{
 		CharacterMovement = this.gameObject.GetComponent<CharacterMovement>();
+		Path = this.gameObject.GetComponent<Path>();
 	}
 
 	private void Update()
