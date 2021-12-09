@@ -14,10 +14,13 @@ public class StateController : MonoBehaviour
 
 	public Path Path { get; set; }
 
+	public Collider2D Collider2D { get; set; }
+
 	private void Awake()
 	{
 		CharacterMovement = this.gameObject.GetComponent<CharacterMovement>();
 		Path = this.gameObject.GetComponent<Path>();
+		Collider2D = GetComponent<Collider2D>();
 	}
 
 	private void Update()
