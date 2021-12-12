@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/AI/Action/ActionFollow", fileName = "ActionFollow")]
 public class ActionFollow : AIAction
 {
-	private float minDistanceToFollow = 1f;
+	private float minDistanceToFollow = 2f;
 
 	public override void Act(StateController stateController)
 	{

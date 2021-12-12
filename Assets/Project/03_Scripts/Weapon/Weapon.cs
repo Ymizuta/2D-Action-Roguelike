@@ -22,19 +22,20 @@ public class Weapon : MonoBehaviour
 	public int CurrentAmmo { get; set; }
 	public bool CanShoot { get; set; }
 
+	protected Animator Animator;
+
 	private readonly int weaponUseParameter = Animator.StringToHash("WeaponUse");
 
 	private float nextShootTime;
 	private CharacterController controller;
-	private Animator animator;
 
-	public void Initialize(Character character)
+	public virtual void Initialize(Character character)
 	{
 		SetOwner(character);
 		WeaponAmmo = this.gameObject.GetComponent<WeaponAmmo>();
-		WeaponAmmo.Initialize();
-		GetComponent<WeaponAim>().Initialize();
-		animator = this.gameObject.GetComponent<Animator>();
+		WeaponAmmo?.Initialize();
+		GetComponent<WeaponAim>()?.Initialize();
+		Animator = this.gameObject.GetComponent<Animator>();
 
 		this.gameObject.UpdateAsObservable()
 			.Subscribe(_ => 
@@ -59,7 +60,7 @@ public class Weapon : MonoBehaviour
 		controller.ApplyRecoile(Vector2.zero);
 	}
 
-	public void TriggerShoot()
+	public virtual void UseWeapon()
 	{
 		StartShooting();
 	}
@@ -88,7 +89,7 @@ public class Weapon : MonoBehaviour
 		{
 			return;
 		}
-		animator.SetTrigger(weaponUseParameter);
+		Animator.SetTrigger(weaponUseParameter);
 		WeaponAmmo.ConsumeAmmo();
 		mazzleEffect.Play();
 		Recoile();

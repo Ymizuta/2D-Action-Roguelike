@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd4c7af6502297e4bb5be3fa5f3056c4, type: 3}
-  m_Name: DecisionDetect
+  m_Script: {fileID: 11500000, guid: 86058aae99882af4e9e0c969c9a7d0f2, type: 3}
+  m_Name: DecisionToAttack
   m_EditorClassIdentifier: 
-  detectArea: 5
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 256
+  minDistanceToAttack: 3

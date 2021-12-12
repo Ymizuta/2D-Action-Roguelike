@@ -35,6 +35,8 @@ public class CharacterWeapon : CharacterComponent
 
 	protected override void HandleInput()
 	{
+		if (character.Type != Character.CharacterType.Player) return;
+
 		if (Input.GetMouseButton(0))
 		{
 			if(health.CurrentHealth.Value > 0)Shoot();
@@ -72,7 +74,7 @@ public class CharacterWeapon : CharacterComponent
 
 	private void Shoot()
 	{
-		CurrentWeapon.TriggerShoot();
+		CurrentWeapon.UseWeapon();
 		if (character.Type == Character.CharacterType.Player)
 		{
 			UIManager.Instance.UpdateWeapon(CurrentWeapon.CurrentAmmo, CurrentWeapon.MaxMagazineSize);
@@ -114,7 +116,7 @@ public class CharacterWeapon : CharacterComponent
 		this.CurrentWeapon.Equiped();
 		// change reticle
 		this.WeaponAim = CurrentWeapon.GetComponent<WeaponAim>();
-		this.WeaponAim.ShowReticle();
+		this.WeaponAim?.ShowReticle();
 
 		if (character.Type == Character.CharacterType.Player)
 		{

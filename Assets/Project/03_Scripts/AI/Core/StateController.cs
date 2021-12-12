@@ -11,6 +11,7 @@ public class StateController : MonoBehaviour
 	public Transform Target { get; set; }
 
 	public CharacterMovement CharacterMovement { get; set; }
+	public CharacterWeapon CharacterWeapon { get; set; }
 
 	public Path Path { get; set; }
 
@@ -19,6 +20,7 @@ public class StateController : MonoBehaviour
 	private void Awake()
 	{
 		CharacterMovement = this.gameObject.GetComponent<CharacterMovement>();
+		CharacterWeapon = this.gameObject.GetComponent<CharacterWeapon>();
 		Path = this.gameObject.GetComponent<Path>();
 		Collider2D = GetComponent<Collider2D>();
 	}
