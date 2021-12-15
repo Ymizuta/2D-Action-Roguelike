@@ -17,6 +17,7 @@ public class Weapon : MonoBehaviour
 
 	public Character WeaponOwner { get; set; }
 	public WeaponAmmo WeaponAmmo { get; set; }
+	public WeaponAim Aim { get; set; }
 	public int MaxMagazineSize => maxMagazineSize;
 	public bool UseMagazine => useMagazine;
 	public int CurrentAmmo { get; set; }
@@ -34,6 +35,7 @@ public class Weapon : MonoBehaviour
 		SetOwner(character);
 		WeaponAmmo = this.gameObject.GetComponent<WeaponAmmo>();
 		WeaponAmmo?.Initialize();
+		Aim = GetComponent<WeaponAim>();
 		GetComponent<WeaponAim>()?.Initialize();
 		Animator = this.gameObject.GetComponent<Animator>();
 

@@ -10,6 +10,7 @@ public class WeaponAim : MonoBehaviour
 
 	private GameObject reticle;
 	private Vector3 reticlePosition;
+	private Vector3 direction;
 
 	private Vector3 currentAim = Vector3.zero;
 	private Quaternion initRotation;
@@ -29,7 +30,13 @@ public class WeaponAim : MonoBehaviour
 		this.UpdateAsObservable()
 			.Subscribe(_ => 
 			{
-				GetMousePosition();
+				if (characterFlip.GetComponent<Character>().Type == Character.CharacterType.Player)
+				{
+					GetMousePosition();
+				}else
+				{
+					EnemyAim();
+				}
 				MoveReticle();
 				RotateWeapon();
 			}).AddTo(this);
@@ -50,7 +57,7 @@ public class WeaponAim : MonoBehaviour
 		var mousePos = Input.mousePosition;
 		mousePos.z = 5f;
 
-		var direction = Camera.main.ScreenToWorldPoint(mousePos);
+		direction = Camera.main.ScreenToWorldPoint(mousePos);
 		direction.z = transform.position.z;
 		reticlePosition = direction;
 
@@ -64,10 +71,22 @@ public class WeaponAim : MonoBehaviour
 		reticle.transform.position = reticlePosition;
 	}
 
-	private void RotateWeapon()
+	public void RotateWeapon()
 	{
 		CurrentAimAngle = Mathf.Atan2(currentAim.y, currentAim.x) * Mathf.Rad2Deg;
 		lookRotation = Quaternion.Euler((CurrentAimAngle * Vector3.forward));
 		transform.rotation = lookRotation;
+	}
+
+	private void EnemyAim()
+	{
+		CurrentAimAbsolute = currentAim;
+		currentAim = characterFlip.IsFaceRight ? currentAim : -currentAim;
+		direction = currentAim - transform.position;
+	}
+
+	public void SetAim(Vector2 newAim)
+	{
+		currentAim = newAim;
 	}
 }
