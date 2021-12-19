@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class StateController : MonoBehaviour
 {
 	[Header("State")]
 	[SerializeField] private AIState currentState;
 	[SerializeField] private AIState remainState;
+
+	[Header("FOV")]
+	[SerializeField] private Light2D fov;
 
 	public Transform Target { get; set; }
 
@@ -17,12 +21,17 @@ public class StateController : MonoBehaviour
 
 	public Collider2D Collider2D { get; set; }
 
+	public Light2D FOV => fov;
+
+	public Transform Player { get; set; }
+
 	private void Awake()
 	{
 		CharacterMovement = this.gameObject.GetComponent<CharacterMovement>();
 		CharacterWeapon = this.gameObject.GetComponent<CharacterWeapon>();
 		Path = this.gameObject.GetComponent<Path>();
 		Collider2D = GetComponent<Collider2D>();
+		Player = GameObject.Find("Player").transform;
 	}
 
 	private void Update()
