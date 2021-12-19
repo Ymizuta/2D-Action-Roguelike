@@ -12,6 +12,7 @@ public class DecisionCanSeePlayer : AIDecision
 	public override bool Decide(StateController cotroller)
 	{
 		if (playerFlip == null) { playerFlip = cotroller.Player.GetComponent<CharacterFlip>(); }
+		EvaluateWeaponDirection(cotroller);
 		return CanSeePlayer(cotroller);
 	}
 
@@ -38,5 +39,13 @@ public class DecisionCanSeePlayer : AIDecision
 		}
 		controller.Target = null;
 		return false;
+	}
+
+	private void EvaluateWeaponDirection(StateController controller)
+	{
+		if (controller.Target == null)
+		{
+			controller.CharacterWeapon.CurrentWeapon.Aim.SetAim(controller.CharacterFlip.IsFaceRight ? Vector2.right : Vector2.left);
+		}
 	}
 }

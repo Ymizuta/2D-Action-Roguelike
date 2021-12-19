@@ -16,6 +16,7 @@ public class StateController : MonoBehaviour
 
 	public CharacterMovement CharacterMovement { get; set; }
 	public CharacterWeapon CharacterWeapon { get; set; }
+	public CharacterFlip CharacterFlip { get; set; }
 
 	public Path Path { get; set; }
 
@@ -29,6 +30,7 @@ public class StateController : MonoBehaviour
 	{
 		CharacterMovement = this.gameObject.GetComponent<CharacterMovement>();
 		CharacterWeapon = this.gameObject.GetComponent<CharacterWeapon>();
+		CharacterFlip = this.gameObject.GetComponent<CharacterFlip>();
 		Path = this.gameObject.GetComponent<Path>();
 		Collider2D = GetComponent<Collider2D>();
 		Player = GameObject.Find("Player").transform;
