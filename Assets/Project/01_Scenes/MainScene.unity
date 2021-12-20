@@ -11803,7 +11803,7 @@ GameObject:
   - component: {fileID: 746896654}
   - component: {fileID: 746896653}
   - component: {fileID: 746896652}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy_Shooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11823,7 +11823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponHolderPosition: {fileID: 1389652990}
-  weaponToUse: {fileID: 5487569279375274614, guid: b0380601a60fd9342b58b2999d7c9915, type: 3}
+  weaponToUse: {fileID: 5487569279375274614, guid: 7a4a5c93c5f669f4f95e216517fd21bf, type: 3}
 --- !u!114 &746896653
 MonoBehaviour:
   m_ObjectHideFlags: 0
