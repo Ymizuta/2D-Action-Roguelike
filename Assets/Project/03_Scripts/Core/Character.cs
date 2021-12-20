@@ -20,7 +20,7 @@ public class Character : MonoBehaviour
 
 	private void Awake()
 	{
-		this.gameObject.GetComponent<Health>().Initalize(isPlayer: true);
+		this.gameObject.GetComponent<Health>().Initalize(characterType == CharacterType.Player);
 		this.gameObject.GetComponent<CharacterController>().Initialize();
 	}
 }

@@ -22,6 +22,7 @@ public class Health : MonoBehaviour
 
 	public ReactiveProperty<float> CurrentHealth { get; set; } = new ReactiveProperty<float>();
 	public ReactiveProperty<float> CurrentShield { get; set; } = new ReactiveProperty<float>();
+	public float MaxHealth => maxHealth;
 
 	public void Initalize(bool isPlayer = false)
 	{
@@ -80,6 +81,9 @@ public class Health : MonoBehaviour
 		{
 			this.collider.enabled = false;
 			this.renderer.enabled = false;
+		}else
+		{
+			gameObject.SetActive(false);
 		}
 	}
 
