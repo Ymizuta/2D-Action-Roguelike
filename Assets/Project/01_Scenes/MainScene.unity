@@ -12927,7 +12927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterWeapon: {fileID: 227054330}
-  shakeVibrato: 1
+  shakeVibrato: 0
   shakeRandomeness: 0.002
   shakeTime: 0.01
 --- !u!114 &963194231
