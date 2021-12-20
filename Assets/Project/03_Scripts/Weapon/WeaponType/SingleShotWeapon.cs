@@ -34,6 +34,7 @@ public class SingleShotWeapon : Weapon
 		projectile.Initialize();
 		projectile.ReuseInit();
 		projectile.GetComponent<SpriteRenderer>().flipX = false;
+		projectile.WeaponOwner = WeaponOwner;
 
 		// spread
 		randomProjectileSpread.z = Random.Range(-projectileSpread.z, projectileSpread.z);

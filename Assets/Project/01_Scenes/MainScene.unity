@@ -953,8 +953,9 @@ GameObject:
   - component: {fileID: 227054325}
   - component: {fileID: 227054326}
   - component: {fileID: 227054327}
-  - component: {fileID: 227054329}
   - component: {fileID: 227054330}
+  - component: {fileID: 227054329}
+  - component: {fileID: 227054319}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -977,6 +978,20 @@ MonoBehaviour:
   characterType: 0
   characterSprite: {fileID: 1847240193}
   animator: {fileID: 1847240192}
+--- !u!114 &227054319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227054317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cafd0a08e14c494290d2c19b845dd66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageType: 1
+  damageToApply: 1
 --- !u!4 &227054320
 Transform:
   m_ObjectHideFlags: 0

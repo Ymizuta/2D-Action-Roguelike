@@ -16,6 +16,7 @@ public class Projectile : MonoBehaviour
 	private Vector2 Direction { get; set; }
 	private bool IsFacingRight { get; set; }
 	public float Speed { get; set; }
+	public Character WeaponOwner { get; set; }
 
 	private Rigidbody2D rigidbody2d;
 	private SpriteRenderer spriteRenderer;
