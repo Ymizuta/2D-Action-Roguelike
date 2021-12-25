@@ -1789,6 +1789,7 @@ GameObject:
   - component: {fileID: 383853643}
   - component: {fileID: 383853649}
   - component: {fileID: 383853648}
+  - component: {fileID: 383853652}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -1874,7 +1875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1760028a3ece5c74aa3474d50440140c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 11400000, guid: cfb483fc4fc3008408a90a628cdd3537, type: 2}
+  currentState: {fileID: 11400000, guid: edc5accffbe883e47aa2ea0f4783d50a, type: 2}
   remainState: {fileID: 11400000, guid: 939be9f4e1b876f4e86dc5a0f0013761, type: 2}
   fov: {fileID: 0}
 --- !u!114 &383853644
@@ -1940,7 +1941,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 383853640}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688408c8a07733740bca04c7faa213dd, type: 3}
   m_Name: 
@@ -1961,7 +1962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPrefab: {fileID: 3519433614640612784, guid: 76d8cb6ca4a11164b9b5d96d4d9e305b, type: 3}
-  poolSize: 40
+  poolSize: 110
   canExpand: 1
 --- !u!61 &383853650
 BoxCollider2D:
@@ -2010,6 +2011,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &383853652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383853640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88d519e3c830fc4abb535e16f942c93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileAmount: 70
+  projectileSpeed: 5
+  projectileAcceleration: 0
+  startAngle: 180
+  shiftAngle: 10
+  shotDelay: 0.05
 --- !u!1001 &387745299
 PrefabInstance:
   m_ObjectHideFlags: 0
