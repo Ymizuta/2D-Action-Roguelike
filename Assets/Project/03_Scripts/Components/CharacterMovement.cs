@@ -40,11 +40,11 @@ public class CharacterMovement : CharacterComponent
 	{
 		if (Mathf.Abs(controller.CurrentMovement.x) >= 0.1f || Mathf.Abs(controller.CurrentMovement.y) >= 0.1f)
 		{
-			animator.SetBool(movingParameter, true);
+			if (animator != null) animator.SetBool(movingParameter, true);
 		}
 		else
 		{
-			animator.SetBool(movingParameter, false);
+			if(animator!= null) animator.SetBool(movingParameter, false);
 		}
 	}
 
