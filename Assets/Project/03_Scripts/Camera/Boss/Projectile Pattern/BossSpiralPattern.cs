@@ -9,7 +9,7 @@ public class BossSpiralPattern : BossBaseShot
 	[SerializeField] private float shotDelay = 0.5f;
 
 	private int shotIndex;
-	private float nexShotTime;
+	private float nextShotTime;
 
 	protected override void Start()
 	{
@@ -29,10 +29,10 @@ public class BossSpiralPattern : BossBaseShot
 			return;
 		}
 
-		if (nexShotTime >= 0f)
+		if (nextShotTime >= 0f)
 		{
-			nexShotTime -= Time.deltaTime;
-			if (nexShotTime >= 0f)
+			nextShotTime -= Time.deltaTime;
+			if (nextShotTime >= 0f)
 			{
 				return;
 			}
@@ -52,11 +52,11 @@ public class BossSpiralPattern : BossBaseShot
 		}
 		else
 		{
-			nexShotTime = shotDelay;
-			if (nexShotTime <= 0)
+			nextShotTime = shotDelay;
+			if (nextShotTime <= 0)
 			{
 				Update();
-				nexShotTime = 0f;
+				nextShotTime = 0f;
 			}
 		}
 	}

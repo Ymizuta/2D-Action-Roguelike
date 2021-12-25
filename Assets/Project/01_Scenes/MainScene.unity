@@ -1790,6 +1790,7 @@ GameObject:
   - component: {fileID: 383853649}
   - component: {fileID: 383853648}
   - component: {fileID: 383853652}
+  - component: {fileID: 383853653}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -2018,7 +2019,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 383853640}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a88d519e3c830fc4abb535e16f942c93, type: 3}
   m_Name: 
@@ -2029,6 +2030,27 @@ MonoBehaviour:
   startAngle: 180
   shiftAngle: 10
   shotDelay: 0.05
+--- !u!114 &383853653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383853640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6be9f7b805609ef4a868d620511d8dd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileAmount: 20
+  projectileSpeed: 2
+  projectileAcceleration: 0
+  startAngle: 180
+  range: 90
+  minRandomSpeed: 1
+  maxRandomSpeed: 3
+  minDelay: 0.01
+  maxDelay: 0.1
 --- !u!1001 &387745299
 PrefabInstance:
   m_ObjectHideFlags: 0
