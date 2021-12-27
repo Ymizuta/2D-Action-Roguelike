@@ -39,12 +39,12 @@ public class BossBaseShot : MonoBehaviour
 		bossProjectile.Shoot(angle, speed, acceleration);
 	}
 
-	protected virtual void EnableShooting()
+	public virtual void EnableShooting()
 	{
 		isShooting = true;
 	}
 
-	protected virtual void DisableShooting()
+	public virtual void DisableShooting()
 	{
 		isShooting = false;
 	}

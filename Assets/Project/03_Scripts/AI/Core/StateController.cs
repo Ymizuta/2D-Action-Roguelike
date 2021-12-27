@@ -14,6 +14,7 @@ public class StateController : MonoBehaviour
 
 	public Transform Target { get; set; }
 
+	public Character Character { get; set; }
 	public CharacterMovement CharacterMovement { get; set; }
 	public CharacterWeapon CharacterWeapon { get; set; }
 	public CharacterFlip CharacterFlip { get; set; }
@@ -28,6 +29,7 @@ public class StateController : MonoBehaviour
 
 	private void Awake()
 	{
+		Character = this.GetComponent<Character>();
 		CharacterMovement = this.gameObject.GetComponent<CharacterMovement>();
 		CharacterWeapon = this.gameObject.GetComponent<CharacterWeapon>();
 		CharacterFlip = this.gameObject.GetComponent<CharacterFlip>();

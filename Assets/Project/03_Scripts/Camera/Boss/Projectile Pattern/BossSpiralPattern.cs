@@ -11,12 +11,6 @@ public class BossSpiralPattern : BossBaseShot
 	private int shotIndex;
 	private float nextShotTime;
 
-	protected override void Start()
-	{
-		base.Start();
-		EnableShooting();
-	}
-
 	private void Update()
 	{
 		Shoot();
@@ -59,5 +53,11 @@ public class BossSpiralPattern : BossBaseShot
 				nextShotTime = 0f;
 			}
 		}
+	}
+
+	public override void EnableShooting()
+	{
+		base.EnableShooting();
+		shotIndex = 0;
 	}
 }

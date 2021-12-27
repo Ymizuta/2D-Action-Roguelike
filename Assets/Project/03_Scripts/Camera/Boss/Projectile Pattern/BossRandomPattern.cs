@@ -16,12 +16,6 @@ public class BossRandomPattern : BossBaseShot
 	private float nextShotTime;
 	private int shotIndex;
 
-	protected override void Start()
-	{
-		base.Start();
-		EnableShooting();
-	}
-
 	private void Update()
 	{
 		Shoot();
@@ -70,5 +64,11 @@ public class BossRandomPattern : BossBaseShot
 				nextShotTime = 0f;
 			}
 		}
+	}
+
+	public override void EnableShooting()
+	{
+		base.EnableShooting();
+		shotIndex = 0;
 	}
 }
