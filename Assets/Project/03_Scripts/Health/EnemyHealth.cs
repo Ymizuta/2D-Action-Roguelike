@@ -32,6 +32,6 @@ public class EnemyHealth : MonoBehaviour
 
 	private void UpdateHealthBar()
 	{
-		healthBar.fillAmount = enemyHealth.CurrentHealth.Value / enemyHealth.MaxHealth;
+		if(healthBar != null) healthBar.fillAmount = enemyHealth.CurrentHealth.Value / enemyHealth.MaxHealth;
 	}
 }
