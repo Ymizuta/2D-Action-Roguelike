@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4358fcac4b2b3e347814b15331ec2a48, type: 3}
-  m_Name: BossTest
+  m_Name: StateBossShoot
   m_EditorClassIdentifier: 
   Actions:
-  - {fileID: 11400000, guid: b3916cd1de0fcc2488c09a3d1670b4e7, type: 2}
+  - {fileID: 11400000, guid: 3400ba697c16d1241a23aa57b53e0d78, type: 2}
   Transitions:
-  - decision: {fileID: 11400000, guid: e45144cfa183e3645a1b02f51a4fa1cc, type: 2}
+  - decision: {fileID: 11400000, guid: 7cc4fd555ac889b4584246a8d73a4ce9, type: 2}
     TrueState: {fileID: 11400000, guid: 939be9f4e1b876f4e86dc5a0f0013761, type: 2}
-    FalseState: {fileID: 11400000, guid: 939be9f4e1b876f4e86dc5a0f0013761, type: 2}
+    FalseState: {fileID: 11400000, guid: 3bf13141a3ed29246979fe30a607cfa4, type: 2}
