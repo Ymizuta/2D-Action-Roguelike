@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
+	[SerializeField] private GameObject healthBarObject = null;
 	[SerializeField] private Image healthBar = null;
 	[SerializeField] private int damage = 1;
 
@@ -22,6 +23,7 @@ public class EnemyHealth : MonoBehaviour
 		{
 			TakeDamage();
 			UpdateHealthBar();
+			if (healthBarObject != null && enemyHealth.CurrentHealth.Value <= 0) healthBarObject.SetActive(false);
 		}
 	}
 

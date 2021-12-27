@@ -35,7 +35,7 @@ public class ProjectileBase : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (CheckLayer(collision.gameObject.layer, objectMask))
+		if (MyLibrary.CheckLayer(collision.gameObject.layer, objectMask))
 		{
 			spriteRenderer.enabled = false;
 			rigidbody2d.isKinematic = true;
@@ -53,10 +53,5 @@ public class ProjectileBase : MonoBehaviour
 
 	protected virtual void Stop()
 	{
-	}
-
-	private bool CheckLayer(int layer, LayerMask objectMask)
-	{
-		return ((1 << layer) & objectMask) != 0;
 	}
 }
