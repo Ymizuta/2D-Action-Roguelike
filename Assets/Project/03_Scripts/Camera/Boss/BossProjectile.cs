@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossProjectile : MonoBehaviour
+public class BossProjectile : ProjectileBase
 {
 	private float speed;
 	private float angle;
@@ -11,8 +11,21 @@ public class BossProjectile : MonoBehaviour
 
 	private void Awake()
 	{
-		thisTransform = this.transform;
+		Initialize();
 	}
+
+	public override void Initialize()
+	{
+		if (isInitialized) return;
+
+		base.Initialize();
+
+		WeaponOwnerType = Character.CharacterType.AI;
+		thisTransform = this.transform;
+
+		isInitialized = true;
+	}
+
 	private void Update()
 	{
 		MoveProjectile();
@@ -26,6 +39,8 @@ public class BossProjectile : MonoBehaviour
 
 		Vector3 projectileAngle = thisTransform.rotation.eulerAngles;
 		thisTransform.rotation = Quaternion.Euler(projectileAngle.x, projectileAngle.y, newAngle);
+
+		ReuseInit();
 	}
 
 	private void MoveProjectile()
@@ -43,5 +58,10 @@ public class BossProjectile : MonoBehaviour
 		// Move
 		Vector3 newPosition = thisTransform.position + thisTransform.up * speed * Time.deltaTime;
 		thisTransform.SetPositionAndRotation(newPosition, newRotation);
+	}
+
+	protected override void Stop()
+	{
+		this.speed = 0f;
 	}
 }

@@ -17,7 +17,7 @@ public class PlayerDamage : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.gameObject.tag == "Bullet" 
-			&& collision.gameObject.GetComponent<Projectile>().WeaponOwner.Type == damageType)
+			&& collision.gameObject.GetComponent<ProjectileBase>().WeaponOwnerType == damageType)
 		{
 			TakeDamage();
 		}

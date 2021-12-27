@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3519433614640612786}
   - component: {fileID: 3519433614640612787}
   - component: {fileID: 996127793377098886}
-  - component: {fileID: -1945553752133581432}
+  - component: {fileID: -3410053164843627613}
   - component: {fileID: 3922051815524199662}
   - component: {fileID: -6880192422042675415}
   m_Layer: 10
@@ -95,7 +95,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3519433614640612784}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -108,8 +108,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &-1945553752133581432
-BoxCollider2D:
+--- !u!58 &-3410053164843627613
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -122,18 +122,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 0.2888889, y: 0.12222222}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2888889, y: 0.12222222}
-  m_EdgeRadius: 0
+  m_Radius: 0.32
 --- !u!114 &3922051815524199662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876d3bbc74988a54fa6ae0edd41323fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 10
+  lifeTime: 0
 --- !u!114 &-6880192422042675415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864f4cb19d503d349a1a570966483c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inpulseEffect: {fileID: 6774839125129816159}
+  objectMask:
+    serializedVersion: 2
+    m_Bits: 448
 --- !u!1001 &8428621117636026243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -219,5 +213,10 @@ PrefabInstance:
 --- !u!4 &6774839125129816152 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3097749172813232091, guid: 500fbbaced6a3c248acb0c7702cb9c16, type: 3}
+  m_PrefabInstance: {fileID: 8428621117636026243}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6774839125129816159 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3097749172813232092, guid: 500fbbaced6a3c248acb0c7702cb9c16, type: 3}
   m_PrefabInstance: {fileID: 8428621117636026243}
   m_PrefabAsset: {fileID: 0}
