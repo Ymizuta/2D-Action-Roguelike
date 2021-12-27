@@ -17,7 +17,7 @@ public class ProjectileBase : MonoBehaviour
 
 	protected bool isInitialized = false;
 
-	public Character.CharacterType WeaponOwnerType { get; set; }
+	public Character WeaponOwner { get; set; }
 
 	public virtual void Initialize()
 	{

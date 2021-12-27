@@ -10,10 +10,12 @@ public class BossBaseShot : MonoBehaviour
 
 	protected ObjectPooler pooler;
 	protected  bool isShooting;
-	
+	protected Character weaponOwner;
+
 	protected virtual void Start()
 	{
 		pooler = GetComponent<ObjectPooler>();
+		weaponOwner = GetComponent<Character>();
 	}
 
 	protected BossProjectile GetBossProjectile(Vector3 newPosition)
@@ -33,6 +35,7 @@ public class BossBaseShot : MonoBehaviour
 		{
 			return;
 		}
+		bossProjectile.WeaponOwner = weaponOwner;
 		bossProjectile.Shoot(angle, speed, acceleration);
 	}
 

@@ -20,7 +20,6 @@ public class BossProjectile : ProjectileBase
 
 		base.Initialize();
 
-		WeaponOwnerType = Character.CharacterType.AI;
 		thisTransform = this.transform;
 
 		isInitialized = true;
