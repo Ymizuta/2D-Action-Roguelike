@@ -28,6 +28,8 @@ public class SingleShotWeapon : Weapon
 
 	private void SpawnProjectile(Vector2 spawnPosition)
 	{
+		SoundManager.Instance.PlaySound(SoundManager.Sound.Bullet);
+
 		Projectile projectile = pooler.GetObjectFromPool().GetComponent<Projectile>();
 		projectile.transform.position = spawnPosition;
 		projectile.gameObject.SetActive(true);

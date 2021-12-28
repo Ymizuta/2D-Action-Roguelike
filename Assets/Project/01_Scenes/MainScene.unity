@@ -33361,6 +33361,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527380346}
   m_CullTransparentMesh: 1
+--- !u!1 &1528341983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1528341985}
+  - component: {fileID: 1528341984}
+  - component: {fileID: 1528341986}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1528341984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528341983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f33522f2dc61ef42a13c63d729c6dde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 879c021a83ddbc846b9597c3f8c25f63, type: 3}
+  - {fileID: 8300000, guid: abf0dd9a48eccf24fad1bce66704c17d, type: 3}
+  - {fileID: 8300000, guid: 633981037282d254c88f3b6e72ae19f5, type: 3}
+  - {fileID: 8300000, guid: fc8b661d94dd91f4cacb510944dca3e8, type: 3}
+  - {fileID: 8300000, guid: 46ba96e2447d0c34bab9601c75026980, type: 3}
+  - {fileID: 8300000, guid: a10d72d21dcc283449acb74412645dac, type: 3}
+  - {fileID: 8300000, guid: 8e571158fa5b9ed40a54645c3afd8cf8, type: 3}
+  - {fileID: 8300000, guid: 350bd8cab4c07fb4485a7247a5384101, type: 3}
+--- !u!4 &1528341985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528341983}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1528341986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528341983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c87e7d90c5d6a48aeb83d3d6b08894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefab: {fileID: 4806061562220740083, guid: 30ca20ff2717f3d4db55fcb5aa2b9551, type: 3}
+  poolSize: 10
+  canExpand: 1
 --- !u!1 &1529961368
 GameObject:
   m_ObjectHideFlags: 0
