@@ -15,4 +15,9 @@ public class CCoin : Collectables
 	{
 		CoinManager.Instance.AddCoin(coinToAdd);
 	}
+
+	protected override void PlayEffects()
+	{
+		SoundManager.Instance.PlaySE(SoundManager.SE.Pickup_Coin7, 0.6f);
+	}
 }

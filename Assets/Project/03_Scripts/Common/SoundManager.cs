@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManager : Singleton<SoundManager>
 {
-	public enum Sound
+	public enum SE
 	{
 		Bullet = 0,
 		Dash,
@@ -12,11 +12,16 @@ public class SoundManager : Singleton<SoundManager>
 		EnemyShot,
 		Impact,
 		ItemPicked,
-		Music,
 		Pickup_Coin7,
 	}
 
-	[SerializeField] private AudioClip[] clips;
+	public enum BGM
+	{
+		Music = 0,
+	}
+
+	[SerializeField] private AudioClip[] seClips;
+	[SerializeField] private AudioClip[] bgnClips;
 
 	private ObjectPooler soundObjectPooler;
 
@@ -25,9 +30,20 @@ public class SoundManager : Singleton<SoundManager>
 		soundObjectPooler = this.gameObject.GetComponent<ObjectPooler>();
 	}
 
-	public void PlaySound(Sound sound, float volume = 0.8f)
+	public void PlayBGM(BGM bgm, float volume = 0.8f)
 	{
-		AudioClip clip = clips[(int)sound];
+		AudioClip clip = bgnClips[(int)bgm];
+		PlaySound(clip, volume);
+	}
+
+	public void PlaySE(SE se, float volume = 0.8f)
+	{
+		AudioClip clip = seClips[(int)se];
+		PlaySound(clip, volume);
+	}
+
+	private void PlaySound(AudioClip clip, float volume = 0.8f)
+	{
 		GameObject audioPooled = soundObjectPooler.GetObjectFromPool();
 		AudioSource audioSource = null;
 

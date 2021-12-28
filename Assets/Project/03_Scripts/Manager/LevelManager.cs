@@ -7,6 +7,11 @@ public class LevelManager : MonoBehaviour
 	[SerializeField] private Character character = null;
 	[SerializeField] private Transform revivePosition = null;
 
+	private void Start()
+	{
+		SoundManager.Instance.PlayBGM(SoundManager.BGM.Music);
+	}
+
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.L))

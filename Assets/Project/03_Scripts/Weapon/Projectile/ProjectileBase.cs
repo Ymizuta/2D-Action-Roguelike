@@ -47,6 +47,7 @@ public class ProjectileBase : MonoBehaviour
 				{
 					// return to pool
 					this.gameObject.GetComponent<ReturnToPool>().Return();
+					SoundManager.Instance.PlaySE(SoundManager.SE.Impact, 0.3f);
 				}).AddTo(this);
 		}
 	}

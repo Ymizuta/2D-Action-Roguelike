@@ -15,6 +15,8 @@ public class CHealth : Collectables
 	protected override void PlayEffects()
 	{
 		Instantiate(healthBonus, transform.position, Quaternion.identity);
+
+		SoundManager.Instance.PlaySE(SoundManager.SE.ItemPicked, 0.6f);
 	}
 
 	private void AddHealth()
@@ -29,5 +31,5 @@ public class CHealth : Collectables
 	{
 		this.character = character;
 		AddHealth();
-	}
+	}	
 }

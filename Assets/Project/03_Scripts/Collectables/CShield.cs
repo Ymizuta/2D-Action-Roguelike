@@ -15,6 +15,7 @@ public class CShield : Collectables
 	protected override void PlayEffects()
 	{
 		Instantiate(healthBonus, transform.position, Quaternion.identity);
+		SoundManager.Instance.PlaySE(SoundManager.SE.ItemPicked, 0.6f);
 	}
 
 	private void AddShield()

@@ -18,4 +18,9 @@ public class CWeapon : Collectables
 			character.GetComponent<CharacterWeapon>().GetNewWeapon(itemWeaponData.Weapon);
 		}
 	}
+
+	protected override void PlayEffects()
+	{
+		SoundManager.Instance.PlaySE(SoundManager.SE.ItemPicked, 0.6f);
+	}
 }

@@ -33391,15 +33391,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f33522f2dc61ef42a13c63d729c6dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clips:
+  seClips:
   - {fileID: 8300000, guid: 879c021a83ddbc846b9597c3f8c25f63, type: 3}
   - {fileID: 8300000, guid: abf0dd9a48eccf24fad1bce66704c17d, type: 3}
   - {fileID: 8300000, guid: 633981037282d254c88f3b6e72ae19f5, type: 3}
   - {fileID: 8300000, guid: fc8b661d94dd91f4cacb510944dca3e8, type: 3}
   - {fileID: 8300000, guid: 46ba96e2447d0c34bab9601c75026980, type: 3}
   - {fileID: 8300000, guid: a10d72d21dcc283449acb74412645dac, type: 3}
-  - {fileID: 8300000, guid: 8e571158fa5b9ed40a54645c3afd8cf8, type: 3}
   - {fileID: 8300000, guid: 350bd8cab4c07fb4485a7247a5384101, type: 3}
+  bgnClips:
+  - {fileID: 8300000, guid: 8e571158fa5b9ed40a54645c3afd8cf8, type: 3}
 --- !u!4 &1528341985
 Transform:
   m_ObjectHideFlags: 0
