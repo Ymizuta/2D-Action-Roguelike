@@ -102,6 +102,8 @@ GameObject:
   - component: {fileID: 191402999578047757}
   - component: {fileID: 191402999578047756}
   - component: {fileID: 191402999578047763}
+  - component: {fileID: 7147540518109113476}
+  - component: {fileID: 5839342575747349111}
   m_Layer: 0
   m_Name: Enemy_Melee
   m_TagString: Untagged
@@ -306,6 +308,33 @@ MonoBehaviour:
   healthBarObject: {fileID: 0}
   healthBar: {fileID: 6384567190458361072}
   damage: 1
+--- !u!114 &7147540518109113476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191402999578047759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384bd2f0ea618d54db3d8dfb0437127e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTransform: {fileID: 0}
+--- !u!114 &5839342575747349111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191402999578047759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a670045f586fc754eaa41eddc861303b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItemPrefabs:
+  - {fileID: 2227346999183120177, guid: 40dad330f259b604fade7f437b86879a, type: 3}
 --- !u!1 &191402999697683151
 GameObject:
   m_ObjectHideFlags: 0

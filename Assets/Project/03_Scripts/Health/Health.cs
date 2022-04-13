@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
-using UniRx.Triggers;
 
 public class Health : MonoBehaviour
 {
@@ -86,16 +85,17 @@ public class Health : MonoBehaviour
 		}else
 		{
 			gameObject.SetActive(false);
-			// 一定時間後に復活
-			Observable.Timer(TimeSpan.FromSeconds(10f))
-				.Subscribe(_ => 
+
+			// アイテムドロップ
+			this.gameObject.GetComponent<ItemDropper>()?.Drop();
+			// 復活予約
+			this.gameObject.GetComponent<CharacterSpawner>()?.ReserveSpawn(10f, 
+				() => 
 				{
 					this.CurrentHealth.Value = maxHealth;
 					this.CurrentShield.Value = maxShield;
 					this.gameObject.GetComponent<EnemyHealth>().UpdateHealthBar();
-					gameObject.SetActive(true);
-				}).AddTo(this);
-
+				});
 		}
 	}
 
