@@ -32,7 +32,7 @@ public class EnemyHealth : MonoBehaviour
 		enemyHealth.TakeDamage(damage);
 	}
 
-	private void UpdateHealthBar()
+	public void UpdateHealthBar()
 	{
 		if(healthBar != null) healthBar.fillAmount = enemyHealth.CurrentHealth.Value / enemyHealth.MaxHealth;
 	}

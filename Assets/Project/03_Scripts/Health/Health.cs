@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
+using UniRx.Triggers;
 
 public class Health : MonoBehaviour
 {
@@ -84,6 +86,16 @@ public class Health : MonoBehaviour
 		}else
 		{
 			gameObject.SetActive(false);
+			// ˆê’èŽžŠÔŒã‚É•œŠˆ
+			Observable.Timer(TimeSpan.FromSeconds(10f))
+				.Subscribe(_ => 
+				{
+					this.CurrentHealth.Value = maxHealth;
+					this.CurrentShield.Value = maxShield;
+					this.gameObject.GetComponent<EnemyHealth>().UpdateHealthBar();
+					gameObject.SetActive(true);
+				}).AddTo(this);
+
 		}
 	}
 
