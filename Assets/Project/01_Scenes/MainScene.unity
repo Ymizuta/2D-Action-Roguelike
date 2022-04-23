@@ -920,7 +920,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &85929652
 Transform:
   m_ObjectHideFlags: 0
@@ -54917,17 +54917,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 8835026689690074748, guid: 586834ae71be500458cb238955c7f33a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8835026689690074750, guid: 586834ae71be500458cb238955c7f33a, type: 3}
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8835026689690074750, guid: 586834ae71be500458cb238955c7f33a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22
+      value: 14.3
       objectReference: {fileID: 0}
     - target: {fileID: 8835026689690074750, guid: 586834ae71be500458cb238955c7f33a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 45
+      value: 42.7
       objectReference: {fileID: 0}
     - target: {fileID: 8835026689690074750, guid: 586834ae71be500458cb238955c7f33a, type: 3}
       propertyPath: m_LocalPosition.z
