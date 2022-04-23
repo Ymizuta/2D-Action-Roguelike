@@ -22,5 +22,12 @@ public class Boss : MonoBehaviour
 		{
 			bossObject.SetActive(true);
 		}).AddTo(this);
+
+		this.gameObject.GetComponent<Health>().OnDieAsObservable
+			.Subscribe(_ => 
+			{
+				UIManager.Instance.ShowBossDefeatedMessage();
+				UIManager.Instance.ShowDialog("これでゲームクリアです。\n遊んで頂きありがとうございました。", 3f);
+			}).AddTo(this);
 	}
 }

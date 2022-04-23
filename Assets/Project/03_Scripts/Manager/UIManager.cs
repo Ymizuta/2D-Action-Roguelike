@@ -31,6 +31,9 @@ public class UIManager : Singleton<UIManager>
 	[Header("DieMessage")]
 	[SerializeField] private CenterMessageUI dieMessage = null;
 
+	[Header("BossDefeatMessage")]
+	[SerializeField] private CenterMessageUI bossDefeatMessage = null;
+
 	[Header("Tutorial")]
 	[SerializeField] private GameObject tutorialUI = null;
 	[SerializeField] private Button tutorialBtn = null;
@@ -122,4 +125,7 @@ public class UIManager : Singleton<UIManager>
 	// die message
 	public void ShowDieMessage() => this.dieMessage.Show();
 	public void HideDieMessageImmidiately() => this.dieMessage.HideImmidiately();
+
+	// boss defeated
+	public void ShowBossDefeatedMessage() => this.bossDefeatMessage.Show(3f);
 }

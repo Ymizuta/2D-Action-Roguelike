@@ -11,7 +11,7 @@ public class ActionBossShootPlayer : AIAction
 	private Health Health { get; set; }
 
 	private BossBaseShot currentShot;
-	private float shotDelay = 3f;
+	private float shotDelay = 1f;
 	private float nextShotTime;
 
 	public override void Act(StateController stateController)

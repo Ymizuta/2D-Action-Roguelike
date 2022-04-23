@@ -86,7 +86,6 @@ public class Health : MonoBehaviour
 		{
 			this.collider.enabled = false;
 			this.renderer.enabled = false;
-			this.onDieSubject.OnNext(default);
 		}else
 		{
 			gameObject.SetActive(false);
@@ -102,6 +101,7 @@ public class Health : MonoBehaviour
 					this.gameObject.GetComponent<EnemyHealth>().UpdateHealthBar();
 				});
 		}
+		this.onDieSubject.OnNext(default);
 	}
 
 	public void Revive()
