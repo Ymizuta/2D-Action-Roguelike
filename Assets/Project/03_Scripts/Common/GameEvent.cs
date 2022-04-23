@@ -10,6 +10,7 @@ public class GameEvent : MonoBehaviour
 	{
 		BossFight,
 		BossDefeated,
+		BossGateGimmick, // ボス前ギミック
 	}
 
 	[SerializeField] private EventType eventType;
