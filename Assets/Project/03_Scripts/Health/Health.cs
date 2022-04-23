@@ -21,9 +21,13 @@ public class Health : MonoBehaviour
 	private SpriteRenderer renderer;
 	private bool isPlayer;
 
+	private Subject<Unit> onDieSubject = new Subject<Unit>();
+
 	public ReactiveProperty<float> CurrentHealth { get; set; } = new ReactiveProperty<float>();
 	public ReactiveProperty<float> CurrentShield { get; set; } = new ReactiveProperty<float>();
 	public float MaxHealth => maxHealth;
+
+	public IObservable<Unit> OnDieAsObservable => onDieSubject;
 
 	public void Initalize(bool isPlayer = false)
 	{
@@ -82,6 +86,7 @@ public class Health : MonoBehaviour
 		{
 			this.collider.enabled = false;
 			this.renderer.enabled = false;
+			this.onDieSubject.OnNext(default);
 		}else
 		{
 			gameObject.SetActive(false);

@@ -26,6 +26,9 @@ public class UIManager : Singleton<UIManager>
 	[Header("Dialog")]
 	[SerializeField] private DialogUI dialogUI = null;
 
+	[Header("DieMessage")]
+	[SerializeField] private CenterMessageUI dieMessage = null;
+
 	private float currentHealth;
 	private float maxHealth;
 	private float currentShield;
@@ -93,4 +96,8 @@ public class UIManager : Singleton<UIManager>
 	{
 		this.dialogUI.Hide();
 	}
+
+	// die message
+	public void ShowDieMessage() => this.dieMessage.Show();
+	public void HideDieMessageImmidiately() => this.dieMessage.HideImmidiately();
 }
