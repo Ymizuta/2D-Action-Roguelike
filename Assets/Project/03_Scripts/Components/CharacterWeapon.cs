@@ -99,6 +99,8 @@ public class CharacterWeapon : CharacterComponent
 		newWeapon.Initialize(character);
 		newWeapon.Returned();
 		this.ownedWeapons.Add(newWeapon);
+		var sprite = newWeapon.GetComponentInChildren<SpriteRenderer>().sprite;
+		if(character.Type == Character.CharacterType.Player)UIManager.Instance.AddEquipableWeapon(sprite);
 	}
 
 	private void EquipWeapon(int idx)

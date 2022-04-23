@@ -19,6 +19,8 @@ public class UIManager : Singleton<UIManager>
 	[Header("Weapon")]
 	[SerializeField] private TextMeshProUGUI ammoText = null;
 	[SerializeField] private Image weaponImg = null;
+	[SerializeField] private EquipableWeaponUI equipableWeaponPrefab = null;
+	[SerializeField] private RectTransform equipableWeaponRoot = null;
 
 	[Header("Coin")]
 	[SerializeField] private TextMeshProUGUI coinText = null;
@@ -79,6 +81,13 @@ public class UIManager : Singleton<UIManager>
 	{
 		weaponImg.sprite = sprite;
 		weaponImg.SetNativeSize();
+	}
+
+	public void AddEquipableWeapon(Sprite sprite)
+	{
+		var number = this.equipableWeaponRoot.childCount + 1;
+		var ui = Instantiate(equipableWeaponPrefab, equipableWeaponRoot);
+		ui.Initialize(number, sprite);
 	}
 
 	public void ShowDialog(string message, float stayTime = 0f)
