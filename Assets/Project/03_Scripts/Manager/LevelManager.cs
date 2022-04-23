@@ -17,7 +17,7 @@ public class LevelManager : MonoBehaviour
 	private void Initialize()
 	{
 		// bgm
-		SoundManager.Instance.PlayBGM(SoundManager.BGM.Music);
+		//SoundManager.Instance.PlayBGM(SoundManager.BGM.Music);
 
 		// player
 		var playerHealth = player.GetComponent<Health>();

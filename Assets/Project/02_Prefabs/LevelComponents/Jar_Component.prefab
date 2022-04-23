@@ -178,8 +178,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba53cbc47fb06140aafa3ddc08a74bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xRandomPosition: 2
-  yRandomPosition: 2
+  xRandomPosition: 0.5
+  yRandomPosition: 0.5
   chanceToDrop: 50
   rewards:
   - {fileID: 2227346999183120177, guid: 40dad330f259b604fade7f437b86879a, type: 3}
