@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UniRx;
+using UniRx.Triggers;
 
 public class UIManager : Singleton<UIManager>
 {
@@ -21,14 +23,15 @@ public class UIManager : Singleton<UIManager>
 	[Header("Coin")]
 	[SerializeField] private TextMeshProUGUI coinText = null;
 
+	[Header("Dialog")]
+	[SerializeField] private DialogUI dialogUI = null;
+
 	private float currentHealth;
 	private float maxHealth;
 	private float currentShield;
 	private float maxShield;
 	private float currentAmmo;
 	private float maxAmmo;
-
-
 
 	private void Update()
 	{
@@ -73,5 +76,21 @@ public class UIManager : Singleton<UIManager>
 	{
 		weaponImg.sprite = sprite;
 		weaponImg.SetNativeSize();
+	}
+
+	public void ShowDialog(string message, float stayTime = 0f)
+	{
+		this.dialogUI.SetLog(message);
+		this.dialogUI.Show();
+		if (stayTime > 0)
+		{
+			Observable.Timer(System.TimeSpan.FromSeconds(stayTime))
+				.Subscribe(_ => HideDiaLog()).AddTo(this);
+		}
+	}
+
+	public void HideDiaLog()
+	{
+		this.dialogUI.Hide();
 	}
 }

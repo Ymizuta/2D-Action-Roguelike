@@ -11,6 +11,7 @@ public class BossGate : MonoBehaviour
 			.Subscribe(_ =>
 			{
 				this.gameObject.SetActive(false);
+				UIManager.Instance.ShowDialog("ƒ{ƒX•”‰®‚ªŠJ•ú‚³‚ê‚Ü‚µ‚½", 3f);
 			}).AddTo(this);
 	}
 }
