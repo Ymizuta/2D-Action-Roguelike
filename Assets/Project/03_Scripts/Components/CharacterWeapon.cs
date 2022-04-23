@@ -23,6 +23,7 @@ public class CharacterWeapon : CharacterComponent
 	public void GetNewWeapon(Weapon weapon)
 	{
 		CreateWeapon(weapon, weaponHolderPosition);
+		EquipWeapon(ownedWeapons.Count - 1);
 	}
 
 	protected override void Start()
@@ -105,6 +106,12 @@ public class CharacterWeapon : CharacterComponent
 
 	private void EquipWeapon(int idx)
 	{
+		var weapon = ownedWeapons[idx];
+		EquipWeapon(weapon);
+	}
+
+	private void EquipWeapon(Weapon weapon)
+	{
 		if (CurrentWeapon != null)
 		{
 			// hide weapon & reticle
@@ -114,7 +121,7 @@ public class CharacterWeapon : CharacterComponent
 		}
 
 		// change weapon
-		this.CurrentWeapon = ownedWeapons[idx];
+		this.CurrentWeapon = weapon;
 		this.CurrentWeapon.Equiped();
 		// change reticle
 		this.WeaponAim = CurrentWeapon.GetComponent<WeaponAim>();
