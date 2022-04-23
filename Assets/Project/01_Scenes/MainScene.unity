@@ -1406,7 +1406,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageType: 1
-  damageToApply: 1
+  damagelayer:
+    serializedVersion: 2
+    m_Bits: 512
+  damageToApply: 2
+  renderer: {fileID: 1847240193}
 --- !u!4 &227054320
 Transform:
   m_ObjectHideFlags: 0
