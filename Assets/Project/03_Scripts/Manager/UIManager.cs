@@ -31,12 +31,25 @@ public class UIManager : Singleton<UIManager>
 	[Header("DieMessage")]
 	[SerializeField] private CenterMessageUI dieMessage = null;
 
+	[Header("Tutorial")]
+	[SerializeField] private GameObject tutorialUI = null;
+	[SerializeField] private Button tutorialBtn = null;
+
 	private float currentHealth;
 	private float maxHealth;
 	private float currentShield;
 	private float maxShield;
 	private float currentAmmo;
 	private float maxAmmo;
+
+	private void Awake()
+	{
+		tutorialBtn.OnClickAsObservable()
+			.Subscribe(_ => 
+			{
+				tutorialUI.SetActive(!tutorialUI.activeSelf);
+			}).AddTo(this);
+	}
 
 	private void Update()
 	{
