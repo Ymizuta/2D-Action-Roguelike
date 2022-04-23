@@ -31,12 +31,4 @@ public class LevelManager : MonoBehaviour
 				player.transform.position = revivePosition.position;
 			}).AddTo(this);
 	}
-
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.L))
-		{
-			player.GetComponent<Health>().TakeDamage(1);
-		}
-	}
 }
