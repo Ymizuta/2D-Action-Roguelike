@@ -43,7 +43,7 @@ public class ActionBossShootPlayer : AIAction
 				currentShot = SpriralPattern;
 			}
 			currentShot.EnableShooting();
-			nextShotTime += shotDelay;
+			nextShotTime = Time.time + shotDelay;
 		}
 	}
 
